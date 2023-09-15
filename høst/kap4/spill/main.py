@@ -1,4 +1,4 @@
-# from pygame import * 
+from pygame import * 
 
 # def main():
     
