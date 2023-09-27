@@ -1,5 +1,5 @@
 # Skolearbeid i programfaget IT 2
-Dette er en samling av det jeg lærer i IT 2. Hittil har jeg bl.a. gått gjennom kapittel 1 og 2 fra aunivers. (27. august 2023)
+Dette er en samling av det jeg lærer i IT 2. Hittil har jeg bl.a. gått gjennom kapittel 1 og 2 fra aunivers. (27. september 2023)
 
 ## Bibliotek som har blitt brukt:
 - random
@@ -31,4 +31,4 @@ Dette prosjektet, som i filene heter "sept.19" akkurat nå, spør når du begynt
 
 Karakterprosjektet bruker input, funksjoner, tekstbehandling, if-setninger, match-setninger, try (kun i gammel versjon), tabeller, lister, dictionaries (skal bygges videre på), linking/importering av egne program
 ## Kommentar til slutt
-Denne READMEen ble skrevet på kun 27. august 2023 og kan derfor mangle detaljer fra både før og etter dette tidspunktet.
+Denne READMEen ble skrevet på kun 27. september 2023 og kan derfor mangle detaljer fra både før og etter dette tidspunktet.
