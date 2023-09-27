@@ -1,4 +1,4 @@
-#match er lettlest og (alledgedly) raskt
+#skoleinfo: match er lettlest og (alledgedly) raskt
 
 import skoleinfo as skole
 import skoleskriver as skriver
