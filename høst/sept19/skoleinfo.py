@@ -89,7 +89,7 @@ def skoleBasertKarakter(skolen, year):
                 # if skdb.skoleliste[n]["dict"][year] == year:
             
             year = int(year)
-            print(skdb.skoleliste[n]["dict"])
+            # print(skdb.skoleliste[n]["dict"])
             karakter = skdb.skoleliste[n]["dict"][year]
                 
         # else:

@@ -1,7 +1,7 @@
 #match er lettlest og (alledgedly) raskt
 
 import skoleinfo as skole
-import skoleskriver as skut
+import skoleskriver as skriver
 import skoledatabase as skdb
 import random
 import spm  
@@ -10,9 +10,17 @@ import spm
 print("Dette programmet kan fortelle deg hvilke karakterer du må ha hatt hvis du gikk på studiespesialisering i Bergen")
 
 #år
-feil = int(0)
-year = spm.yearInpFun(feil) #lar brukeren gjøre 5 feil før programmet restarter
+'''
+feil = 0
+year = spm.yearInpFun(0) #lar brukeren gjøre 5 feil før programmet gir opp
 # year = int(input())
+
+print(feil)
+'''
+
+year = spm.yearInpFun2()
+
+#v3: som v1 men med en while i main
 
 #kjører eller kjører ikke programmet
 if year in skdb.skoleyrs: #sjekker om programmet kan kjøre
@@ -21,16 +29,17 @@ if year in skdb.skoleyrs: #sjekker om programmet kan kjøre
     
     faktiskSkole = skole.navnNorm(skoleinp) #gjør navnet om til en brukbar form hvis det finnes, ellers sier det at det ikke finnes
     
+    #henter karakter hvis skolen er gyldig
     if faktiskSkole != False:
         # karakter = skole.yearBasertKarakter(faktiskSkole,year)
-        
         karakter = skole.skoleBasertKarakter(faktiskSkole,year)
+        
     else:
         karakter = False
-    skut.skriver(skoleinp, faktiskSkole, year, karakter) #skriver ut det den kan og omformulerer etter hvilke data mangler
+    skriver.info(skoleinp, faktiskSkole, year, karakter) #skriver ut det den kan og omformulerer etter hvilke data mangler
         
 else:
-    spm.problem(year) #finner ut hva som er galt og kommuniserer dette
+    skriver.problem(year) #finner ut hva som er galt og kommuniserer dette
 
     
 

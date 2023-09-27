@@ -12,47 +12,73 @@ def yearfunc():
 def yearInpFun(feil):
     yearinp = input("i hvilket år startet du på videregående? (YYYY) ")
     
+    #gir ikke flere sjangser for feil tall
+    #try er ikke egentlig ment for dette
     try:
-        yearinp = int(yearinp)
-    finally:    
-        # print(type(yearinp))
+        yearinp = int(yearinp) 
+    except ValueError:    
+        print(type(yearinp))
+        feil += 1
+        print(f"Du har skrevet {feil} feil")
+        print("skriv et tall")
+        
         if feil < 5:
-            if type(yearinp) == int:
+            return yearInpFun(feil) 
+        else:
+            return False
+    # except yearinp in skdb.skoleyrs:
+    #     print("test")
+    
+    if feil < 5:
+        if type(yearinp) == int:
+            print("dette er et tall")
+            if yearinp in skdb.skoleyrs: 
                 return yearinp
             else:
-                feil += int(1)
-                print(f"feil er: {feil}")
-                print("skriv et tall")
+                feil += 1
+                print(f"Du har skrevet {feil} feil")
+                print("skriv et år mellom 2020 og 2021")
                 
-                year = yearInpFun(feil)
-                return year
+                if feil < 5:
+                    return yearInpFun(feil) 
                 
-        else: 
-            year = False
-            return year
+                return "ikke et skoleår i systemet"
+    else: 
+        print("du får kun 5 sjangser, beklager")
+        year = False
+        return year
 # year = yearinpFun(feil)
 
-def yearInpFun2(feil):
-    try:
-        year = input("skriv")
-    except ValueError: #funker ikke
-        print(f"skriv et årstall")
-        year = yearInpFun2(feil)
+def yearInpFun2():
+    
+    feil = 0
+    yearOK = False
+    while feil < 5 and not yearOK:
+        yearinp = input("i hvilket år startet du på videregående? (YYYY) ")
+        
+        if yearinp.isnumeric():
+            year = int(yearinp)
+            if year in skdb.skoleyrs: 
+                yearOK = True
+            
+            else:
+                year = "ikke et skoleår i systemet" #endre navn
+                print("skriv et år mellom 2020 og 2023") #dynamisk senere
+        else:
+            print(type(yearinp))
+            print("skriv et tall")
+        
+        if not yearOK:
+            feil += 1
+            print(f"Du har skrevet {feil} feil")
+            
+    if feil < 5:
+        if type(yearinp) == int:
+            print("dette er et tall")
+            
+    else: 
+        print("du får kun 5 sjangser, beklager")
+        return False #endre navn
+
     return year
 
-
-
-def problem(year):
-    
-    print(f"problem: year var {year} og ikke gyldig")
-    print("beklager, kan ikke si noe om dette. ", end="")
-    if year is False or year is None:
-        print("du skrev ikke et år")
-    elif type(year) is not float:
-        print("error: no clue what this is")
-    elif year > skdb.skoleyrs[-1]:
-        print("Det er etter det siste året i databasen")
-    elif year < skdb.skoleyrs[0]:
-        print("Det er før det første året i databasen")
-    else:
-        print("no response")
