@@ -27,8 +27,8 @@ Dette er en samling av det jeg lærer i IT 2. Hittil har jeg bl.a. gått gjennom
 - navngiving av variabler
 ## Prosjekt:
 ### Poenggrense 
-Dette prosjektet, som i filene heter "sept.19" akkurat nå, spør når du begynte på vgs og hvilken vgs og gir poenggrensen. Det funker for spesefikke videregående skoler
+Dette prosjektet, som i filene heter "poenggrenseinfo", spør når du begynte på vgs og hvilken vgs og gir poenggrensen. Det funker for spesefikke videregående skoler
 
 Karakterprosjektet bruker input, funksjoner, tekstbehandling, if-setninger, match-setninger, try (kun i gammel versjon), tabeller, lister, dictionaries (skal bygges videre på), linking/importering av egne program
 ## Kommentar til slutt
-Denne READMEen ble skrevet på kun 27. september 2023 og kan derfor mangle detaljer fra både før og etter dette tidspunktet.
+Denne READMEen ble skrevet i slutten av september og kan derfor mangle detaljer fra både før og etter dette.
