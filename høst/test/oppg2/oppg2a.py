@@ -87,7 +87,7 @@ LagerDicts = [
     {"varetittel":"Asus Zenbook GH215",
     "varenavn":"Asus laptop",
     "pris":9999,
-    "varelager":10,
+    "hvor mange på varelager":10,
     "produktinfo":"En bærbar PC med 15.6 tommer skjerm, 8 GB RAM og 256 GB SSD",
     "tekniske eigenskapar": {"prosessor":"Intel Core i5-1135G7","grafikkkort":"Intel Iris Xe Graphics","batteritid":"Opptil 8 timer", "vekt":"1.8 kg","farger":["grå","svart","blå"] }
     },
@@ -95,7 +95,7 @@ LagerDicts = [
         {"varetittel":"Samsung Galaxy S22 GH67",
     "varenavn":"Samsung mobiltelefon",
     "pris":6999,
-    "varelager":20,
+    "hvor mange på varelager":20,
     "produktinfo":"En smarttelefon med 6.7 tommer skjerm, 128 GB lagring og 12 MP kamera",
     "tekniske eigenskapar": {"prosessor":"Qualcomm Snapdragon 888","grafikkkort":"Adreno 660","batteritid":"4500 mAh", "vekt":"200 g","farger":["svart","hvit","grønn"] }
     },
@@ -103,7 +103,7 @@ LagerDicts = [
     {"varetittel":"Apple Airpods Pro Gen 3 (2023)",
         "varenavn":"Trådløse hodetelefoner",
         "pris":2499,
-        "varelager":30,
+        "hvor mange på varelager":30,
         "produktinfo":"Trådløse hodetelefoner med aktiv støydemping",
         "tekniske eigenskapar": {"batterikapasitet":"Opptil 4.5 timer", "vekt":"5.4 g","farger":["hvit", "gul", "spygrønn"] }
         }
@@ -114,7 +114,7 @@ Lager = {
     "Asus Zenbook GH215":{"varetittel":"Asus Zenbook GH215",
     "varenavn":"Asus laptop",
     "pris":9999,
-    "varelager":10,
+    "hvor mange på varelager":10,
     "produktinfo":"En bærbar PC med 15.6 tommer skjerm, 8 GB RAM og 256 GB SSD",
     "tekniske eigenskapar": {"prosessor":"Intel Core i5-1135G7","grafikkkort":"Intel Iris Xe Graphics","batteritid":"Opptil 8 timer", "vekt":"1.8 kg","farger":["grå","svart","blå"] }
     },
@@ -122,7 +122,7 @@ Lager = {
     "Samsung Galaxy S22 GH67":{"varetittel":"Samsung Galaxy S22 GH67",
     "varenavn":"Samsung mobiltelefon",
     "pris":6999,
-    "varelager":20,
+    "hvor mange på varelager":20,
     "produktinfo":"En smarttelefon med 6.7 tommer skjerm, 128 GB lagring og 12 MP kamera",
     "tekniske eigenskapar": {"prosessor":"Qualcomm Snapdragon 888","grafikkkort":"Adreno 660","batteritid":"4500 mAh", "vekt":"200 g","farger":["svart","hvit","grønn"] }
     },
@@ -130,7 +130,7 @@ Lager = {
     "Apple Airpods Pro Gen 3 (2023)":{"varetittel":"Apple Airpods Pro Gen 3 (2023)",
         "varenavn":"Trådløse hodetelefoner",
         "pris":2499,
-        "varelager":30,
+        "hvor mange på varelager":30,
         "produktinfo":"Trådløse hodetelefoner med aktiv støydemping",
         "tekniske eigenskapar": {"batterikapasitet":"Opptil 4.5 timer", "vekt":"5.4 g","farger":["hvit", "gul", "spygrønn"] }
         }
