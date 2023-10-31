@@ -6,7 +6,7 @@ class Tekst():
 
 
 
-def split_into_sentences(text: str) -> list[str]:
+def split_into_words(text: str) -> list[str]:
     sentences = text.split(" ")
     sentences = [s.strip() for s in sentences]
     if sentences and not sentences[-1]: sentences = sentences[:-1]
@@ -22,17 +22,24 @@ if sleepInterval.isnumeric:
     sleepInterval = float(sleepInterval)
     
 else:
-    print("you have to write a number, desimalcs are with '.' not ',' and no text")
+    print("you have to write a number, desimalcs are with '.' not ',' and text may not be included")
 
 
-sentences : list = split_into_sentences(inp)
+words : list = split_into_words(inp)
 
 from time import sleep
 
-print()
-print("----")
-print()
-# for sentence in sentences:
-#     print(sentence)
-#     print()
-#     sleep(sleepInterval)
+def printOneAtATime(theList : list):
+    
+    #aesthetics
+    print()
+    print("----") 
+    print()
+    
+    #prints each element in a list
+    for each in theList:
+        print(each)
+        print()
+        sleep(sleepInterval)
+        
+printOneAtATime(words)
