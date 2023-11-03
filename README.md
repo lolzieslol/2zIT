@@ -16,11 +16,16 @@ Dette er en samling av det jeg lærer i IT 2. Hittil har jeg bl.a. gått gjennom
 - funksjoner
 ### Klasser
 - klasser 
+- subklasser
+- innebygde metoder for klasser
+
 ### Lister og sånt
 - lister
 - dictionaries
 - tabeller
 - tupler
+### annet
+- assert
 
 ## Andre ferdigheter
 - linket egne program med import
@@ -30,5 +35,3 @@ Dette er en samling av det jeg lærer i IT 2. Hittil har jeg bl.a. gått gjennom
 Dette prosjektet, som i filene heter "poenggrenseinfo", spør når du begynte på vgs og hvilken vgs og gir poenggrensen. Det funker for spesefikke videregående skoler
 
 Karakterprosjektet bruker input, funksjoner, tekstbehandling, if-setninger, match-setninger, try (kun i gammel versjon), tabeller, lister, dictionaries (skal bygges videre på), linking/importering av egne program
-## Kommentar til slutt
-Denne READMEen ble skrevet i slutten av september og kan derfor mangle detaljer fra både før og etter dette.

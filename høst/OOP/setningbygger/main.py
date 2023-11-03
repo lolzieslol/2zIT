@@ -1,13 +1,23 @@
+'''
+program som bygger setninger.
+- for norsk, funker IKKE i alle språk 
 
-class ordet:
-    def __init__(self,name : str):
-        self.name = name.lower()
-        
-    def skrivut(self):
-        print(self.name)
-        
+'''
 
-jeg = ordet("jeg")
+# from ordklasse import *
+import ordklasse as o
 
-print(jeg.name)
+#definerer
+jeg = o.DetPersonligePronomenet("jeg",1,"SubJekt")
+er = o.Verbet("er", "presens")
+ikke = o.Ordet("ikke")
+deg = o.DetPersonligePronomenet("deg",1,"akkusativ")
 
+#skriver ut
+
+print(jeg(), er(), jeg.form)
+
+if jeg() == deg():
+    print("hæ")
+else: 
+    print(jeg(),er(),ikke(), deg())
