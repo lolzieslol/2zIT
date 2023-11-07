@@ -7,16 +7,27 @@ class Ordet:
     
     def __call__(self):
         return self.name
+    
+    def ordklassenavn():
+        ordklasse = "ord"
         
 class Verbet(Ordet):
     
     def __init__(self, name: str, tid: str="presens"):
         super().__init__(name)
         self.tid = tid
+        
+    def ordklassenavn():
+        ordklasse = "pronomen"
+        return ordklasse
     
 class Pronomenet(Ordet):
     def __init__(self, name: str):
         super().__init__(name)
+        
+    def ordklassenavn():
+        ordklasse = "pronomen"
+        return ordklasse
         
 class DetPersonligePronomenet(Pronomenet):
     
@@ -38,5 +49,11 @@ class DetPersonligePronomenet(Pronomenet):
         self.form = form
         self.gender = gender
         self.tall = tall
+        
+        self.classname = "personlig pronomen"
+        
+    def ordklassenavn():
+        ordklasse = "personlig pronomen"
+        return ordklasse
 
     

@@ -19,19 +19,30 @@ Dette er en samling av det jeg lærer i IT 2. Hittil har jeg bl.a. gått gjennom
 - subklasser
 - innebygde metoder for klasser
 
-### Lister og sånt
+### Lister og slikt
 - lister
 - dictionaries
 - tabeller
 - tupler
+
 ### annet
 - assert
 
 ## Andre ferdigheter
 - linket egne program med import
 - navngiving av variabler
+- gitignore
+## Programeringsparadigmer
+- Object-oriented programming (OOP)
+- funksjonell
 ## Prosjekt:
 ### Poenggrense 
 Dette prosjektet, som i filene heter "poenggrenseinfo", spør når du begynte på vgs og hvilken vgs og gir poenggrensen. Det funker for spesefikke videregående skoler
 
 Karakterprosjektet bruker input, funksjoner, tekstbehandling, if-setninger, match-setninger, try (kun i gammel versjon), tabeller, lister, dictionaries (skal bygges videre på), linking/importering av egne program
+
+### påbegynt/tidlig i prosessen:
+Det er ikke garantert at jeg kommer til å fortsette på noen av disse
+- setningsbygger
+- fraværsgrensespill
+- fileditor

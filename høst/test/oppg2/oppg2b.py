@@ -52,7 +52,7 @@ def UtskriftVareFraLager(varetittel):
                             print("- farger")
                             # farger = Lager[varetittel]["tekniske eigenskapar"][listeVerdi]
                             for i in range(len(farger)):
-                                print(f"-- {farger[i]}")
+                                print(f"\t-- {farger[i]}")
                 else:
                     # {type(verdi)} aasdf
                     print(DetaljKey,":",DetaljVerdi)
@@ -63,7 +63,7 @@ def UtskriftVareFraLager(varetittel):
     return
 
 vareinp = "Samsung Galaxy S22 GH67"
-UtskriftVareFraLager(vareinp)
+# UtskriftVareFraLager(vareinp)
 
 
 # -	Skriv ein funksjon som tek inn vare-ID og ein ny-pris, og oppdaterer prisen til vara. Skriv deretter ut for å kontrollere om det blei gjort riktig ved å bruke funksjonen i førre punkt.
@@ -81,15 +81,18 @@ vareinp = "Samsung Galaxy S22 GH67"
 
 # -	Skriv ein funksjon som tek inn ein vare-ID og ein ny farge, og legg til fargen i lista over farger
 def VareNyFargeFraLager(varetittel, nyFarge):
-    print("farger før:",Lager[varetittel]["varetittel"],Lager[varetittel]["tekniske eigenskapar"]["farger"])
+    
     if varetittel in Lager.keys():
+        print("farger før:",Lager[varetittel]["varetittel"],Lager[varetittel]["tekniske eigenskapar"]["farger"])
         Lager[varetittel]["tekniske eigenskapar"]["farger"].append(nyFarge)
     
-    print("farger etter:",Lager[varetittel]["varetittel"],Lager[varetittel]["tekniske eigenskapar"]["farger"])
+        print("farger etter:",Lager[varetittel]["varetittel"],Lager[varetittel]["tekniske eigenskapar"]["farger"])
+    else:
+        print("varen er ikke i lageret")
     
 
 vareinp = "Samsung Galaxy S22 GH67"
-# VareNyFargeFraLager(vareinp, "oransje")
+VareNyFargeFraLager(vareinp, "oransje")
 
 
 

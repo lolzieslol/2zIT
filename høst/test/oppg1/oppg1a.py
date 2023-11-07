@@ -8,16 +8,27 @@ Bakgrunnsinformasjon: https://www.adobe.com/creativecloud/photography/discover/p
 
 #input
 
-bredde = int(input("hva er bredden? "))
-lengde = int(input("hva er lengden? "))
 
-def portraitOrLandscape(bredde, lengde):
-    # if inp == landscape:
-    if bredde > lengde:
-        return "Landscape"
-    elif bredde < lengde:
-        return "Portrait"
-    else:
-        return "Kvadrat"
+def main():
+    bredde = input("hva er bredden? ")
+    lengde = input("hva er lengden? ")
     
-print(f"Skjermen din er {portraitOrLandscape(bredde, lengde)}")
+    if bredde.isnumeric():
+        bredde = int(bredde)
+    else:
+        print("bredde var ikke et heltall, det må være et heltall")
+        main()
+        return
+
+    def portraitOrLandscape(bredde, lengde):
+        # if inp == landscape:
+        if bredde > lengde:
+            return "Landscape"
+        elif bredde < lengde:
+            return "Portrait"
+        else:
+            return "Kvadrat"
+        
+    print(f"Skjermen din er {portraitOrLandscape(bredde, lengde)}")
+
+main()

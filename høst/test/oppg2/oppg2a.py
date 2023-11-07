@@ -83,6 +83,7 @@ standardDict = {"varetittel":"",
           "tekniske eigenskapar": {"prosessor":"","grafikkkort":"","batteritid":8, "vektKG":0,"farger":[0] }
           }
 
+
 LagerDicts = [
     {"varetittel":"Asus Zenbook GH215",
     "varenavn":"Asus laptop",
@@ -136,5 +137,12 @@ Lager = {
         }
 }
 
+
+print(LagerDicts[0]["varetittel"])
 # varetall = 1
 # print(f" En av varene, {LagerDicts[varetall]['varetittel']} har en pris på {LagerDicts[varetall]['pris']} kr")
+
+
+
+lagerdictdict = {"asus zenbook":{"a":"b"}}
+

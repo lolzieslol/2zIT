@@ -87,12 +87,23 @@ def personNummerÅr(år):
     return år
 
 
-def personBursdagOrdUtskrift(dag, måned, år):        
-    print(f"bursdagen din er {dag}. {måned} i {år}")
+def personBursdagOrdUtskrift(dag, måned, år, kjønn):        
+    print(f"ifølge fødselsnummeret dit er bursdagen din {dag}. {måned} i {år}, og kjønnet ditt {kjønn}")
+
+def fødselsnummerKjønn(fødselsnummer):
+    kjønnTall = int(fødselsnummer[-3])
+    
+    if kjønnTall % 2 == 0:
+        kjønn = "hunkjønn"
+    else:
+        kjønn = "hankjønn"
+    
+    return kjønn
 
 
-
-if fødselsnummerRettLengde(fødselsnummer):
+if not fødselsnummerRettLengde(fødselsnummer):
+    print("ikke et gyldig personnummer")
+else:
     #separerer tallene i datoen
     bursdagsdag, bursdagsmånednbr, fødselssår = personBursdagTall(fødselsnummer)
     
@@ -105,8 +116,9 @@ if fødselsnummerRettLengde(fødselsnummer):
     #gjør året fra to siffer til fire
     fødselssår = personNummerÅr(fødselssår)
     
-    #skriver ut svaret
-    personBursdagOrdUtskrift(bursdagsdag, bursdagsmånedtxt, fødselssår)
+    #finn kjønn
+    registrertKjønn = fødselsnummerKjønn(fødselsnummer)
     
-else:
-    print("ikke et gyldig personnummer")
+    #skriver ut svaret
+    personBursdagOrdUtskrift(bursdagsdag, bursdagsmånedtxt, fødselssår, registrertKjønn)
+
