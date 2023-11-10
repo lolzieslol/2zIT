@@ -44,6 +44,30 @@ def tilfeldigIBestemtOrdKlasse(wordList,ordklasse):
 
     print(f'ditt tilfeldige ord i klassen {ordklasse.ordklassenavn()} er "{randomWord()}"')
 
-tilfeldigPronomen(ordliste)
+# tilfeldigPronomen(ordliste)
 
-tilfeldigIBestemtOrdKlasse(ordliste, o.Verbet)
+# tilfeldigIBestemtOrdKlasse(ordliste, o.Verbet) #WIP
+
+def ErOrdeneIKlasse(ordlist : list,klasse : str): #klasse med stor bokstav
+    # klasse = str
+    erIKlasse : str = "er" + klasse
+    
+    i = 0
+    for ordet in ordlist:
+        ordet= ordet
+        # print(ordet.__class__)
+        # print(ordet)
+        # if ordet.erIKlasse:
+        #     print(f'ordet "{ordet}" er {klasse}')
+        
+        if hasattr(klasse, erIKlasse):
+            
+            print(f'ordet "{ordet}" er {klasse}')
+            i+=1
+        
+    if i == 0:
+        print("ingen av ordene var i klassen")            
+#
+
+ErOrdeneIKlasse(ordliste,"Verbet")
+#
