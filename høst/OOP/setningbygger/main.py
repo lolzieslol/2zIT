@@ -15,13 +15,14 @@ ikke = o.Ordet("ikke")
 deg = o.DetPersonligePronomenet("deg",1,"akkusativ")
 
 #skriver ut
-
+''' #test
 print(jeg(), er(), jeg.form)
 
 if jeg() == deg():
     print("hæ")
 else: 
     print(jeg(),er(),ikke(), deg())
+'''
     
 ######
 ordliste : list = [jeg,er,ikke,deg]
@@ -41,33 +42,39 @@ def tilfeldigIBestemtOrdKlasse(wordList,ordklasse):
         myint =randint(0,len(wordList)-1)
         
         randomWord = wordList[myint]
+    ordklassen, nounClass = ordklasse.ordklassenavn() 
+    print(f'ditt tilfeldige ord i klassen {ordklassen} er "{randomWord()}"')
 
-    print(f'ditt tilfeldige ord i klassen {ordklasse.ordklassenavn()} er "{randomWord()}"')
+tilfeldigPronomen(ordliste)
 
-# tilfeldigPronomen(ordliste)
-
-# tilfeldigIBestemtOrdKlasse(ordliste, o.Verbet) #WIP
+tilfeldigIBestemtOrdKlasse(ordliste, o.Verbet) #WIP
 
 def ErOrdeneIKlasse(ordlist : list,klasse : str): #klasse med stor bokstav
-    # klasse = str
-    erIKlasse : str = "er" + klasse
+    # print(str(klasse))
     
-    i = 0
+    AntallOrdIKlassen = 0
     for ordet in ordlist:
-        ordet= ordet
-        # print(ordet.__class__)
-        # print(ordet)
         # if ordet.erIKlasse:
         #     print(f'ordet "{ordet}" er {klasse}')
+        if (issubclass(type(ordet), klasse)):
+            klassenavn, nounClass = klasse.ordklassenavn()
+            match nounClass:
+                case "intetkjønn":
+                    enEtEi = "et"
+                case "hankjønn":
+                    enEtEi = "en"
+                case "hunkjønn":
+                    enEtEi = "ei"
+                case _:
+                    enEtEi = ""
+            print(f'ordet "{ordet()}" er {enEtEi} {klassenavn}')
+                
+            AntallOrdIKlassen +=1
         
-        if hasattr(klasse, erIKlasse):
-            
-            print(f'ordet "{ordet}" er {klasse}')
-            i+=1
-        
-    if i == 0:
+    if AntallOrdIKlassen == 0:
         print("ingen av ordene var i klassen")            
 #
 
-ErOrdeneIKlasse(ordliste,"Verbet")
+ErOrdeneIKlasse(ordliste,o.Verbet)
 #
+
