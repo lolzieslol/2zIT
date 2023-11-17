@@ -1,7 +1,6 @@
 class Ordet:
     def __init__(self,name : str): 
         self.name = name.lower()
-        self.erOrd = True
         
     def skrivut(self):
         print(self.name)
@@ -21,17 +20,25 @@ class Verbet(Ordet):
     def __init__(self, name: str, tid: str="presens"):
         super().__init__(name)
         self.tid = tid
-        self.erVerb = True
         
     def ordklassenavn():
         ordklasse = "verb"
         nounClass = "intetkjønn"
         return ordklasse, nounClass
-    
+
+class Substantivet(Ordet):
+    def __init__(self, name: str, wordgender: str):
+        super().__init__(name)
+        self.gender = wordgender
+        
+    def ordklassenavn():
+        ordklasse = "substantiv"
+        nounClass = "intetkjønn"
+        return ordklasse, nounClass
+
 class Pronomenet(Ordet):
     def __init__(self, name: str):
         super().__init__(name)
-        self.erPronomen = True
         
     def ordklassenavn():
         ordklasse = "pronomen"
@@ -42,7 +49,6 @@ class DetPersonligePronomenet(Pronomenet):
     
     def __init__(self, name: str, tall=3, form="subjekt", gender=None):
         super().__init__(name)
-        self.erPersonligPronomen = True
         
         form = form.lower()
         if gender:
@@ -71,10 +77,9 @@ class DetPersonligePronomenet(Pronomenet):
 class Adjektivet(Ordet):
     def __init__(self, navn: str):
         super().__init__(navn)
-        self.erAdjektiv = True
         self.erBeskrivende = True
         
-    def ordklassenavn(self):
+    def ordklassenavn():
         ordklasse = "adjektiv"
         nounClass = "intetkjønn"
         return ordklasse, nounClass
@@ -82,7 +87,6 @@ class Adjektivet(Ordet):
 class Adverbet(Ordet):
     def __init__(self, navn: str):
         super().__init__(navn)
-        self.erAdverb = True
         self.erBeskrivende = True
         
     def ordklassenavn(self):
@@ -97,9 +101,9 @@ class Konjunksjonen(Ordet):
     '''
     def __init__(self, navn: str):
         super().__init__(navn)
-        self.erSubjunksjon = True
         
     def ordklassenavn(self):
+        #TODO: gjør om til substantiv
         ordklasse = "subjunksjon"
         nounClass = "hankjønn"
         return ordklasse, nounClass
@@ -112,7 +116,6 @@ class Subjunksjonen(Konjunksjonen):
     '''
     def __init__(self, navn: str):
         super().__init__(navn)
-        self.erSubjunksjon = True
         
     def ordklassenavn(self):
         ordklasse = "subjunksjon"
@@ -127,7 +130,6 @@ class Interjeksjonen(Ordet):
     '''
     def __init__(self, navn: str):
         super().__init__(navn)
-        self.erInterjeksjon = True
         
     def ordklassenavn(self):
         ordklasse = "subjunksjon"
@@ -138,7 +140,6 @@ class Interjeksjonen(Ordet):
 class Preposisjonen(Ordet):
     def __init__(self, navn: str):
         super().__init__(navn)
-        self.erPreposisjon = True
         
     def ordklassenavn(self):
         ordklasse = "preposisjon"

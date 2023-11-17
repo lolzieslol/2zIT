@@ -7,15 +7,10 @@ from random import randint
 
 # from ordklasse import *
 import ordklasse as o
+from ordene import *
 
-#definerer
-jeg = o.DetPersonligePronomenet("jeg",1,"SubJekt")
-er = o.Verbet("er", "presens")
-ikke = o.Ordet("ikke")
-deg = o.DetPersonligePronomenet("deg",1,"akkusativ")
-
-#skriver ut
 ''' #test
+#skriver ut
 print(jeg(), er(), jeg.form)
 
 if jeg() == deg():
@@ -25,8 +20,6 @@ else:
 '''
     
 ######
-ordliste : list = [jeg,er,ikke,deg]
-
 def tilfeldigPronomen(wordList):
     randomWord = ""    
     while randomWord.__class__ != o.DetPersonligePronomenet:
@@ -36,18 +29,21 @@ def tilfeldigPronomen(wordList):
 
     print(f"ditt tilfeldige pronomen er '{randomWord()}'")
     
+# tilfeldigPronomen(ordliste)
+
 def tilfeldigIBestemtOrdKlasse(wordList,ordklasse):
     randomWord = ""    
-    while randomWord.__class__ != ordklasse:
+    while not issubclass(type(randomWord), ordklasse):
         myint =randint(0,len(wordList)-1)
         
         randomWord = wordList[myint]
     ordklassen, nounClass = ordklasse.ordklassenavn() 
-    print(f'ditt tilfeldige ord i klassen {ordklassen} er "{randomWord()}"')
+    # print(f'ditt tilfeldige ord i klassen {ordklassen} er "{randomWord()}"')
+    return randomWord
 
-tilfeldigPronomen(ordliste)
 
-tilfeldigIBestemtOrdKlasse(ordliste, o.Verbet) #WIP
+
+# tilfeldigIBestemtOrdKlasse(ordliste, o.Verbet) #WIP
 
 def ErOrdeneIKlasse(ordlist : list,klasse : str): #klasse med stor bokstav
     # print(str(klasse))
@@ -75,6 +71,26 @@ def ErOrdeneIKlasse(ordlist : list,klasse : str): #klasse med stor bokstav
         print("ingen av ordene var i klassen")            
 #
 
-ErOrdeneIKlasse(ordliste,o.Verbet)
+# ErOrdeneIKlasse(ordliste,o.Verbet)
 #
 
+def makeSentence(wordlist): #pronoun verb [det/den] adjective noun
+    
+    pronomen = tilfeldigIBestemtOrdKlasse(wordlist, o.Pronomenet)
+    verb = tilfeldigIBestemtOrdKlasse(wordlist, o.Verbet)
+    substantiv = tilfeldigIBestemtOrdKlasse(wordlist,o.Substantivet)
+    adjektiv = tilfeldigIBestemtOrdKlasse(wordlist,o.Adjektivet)
+    
+    if substantiv.gender == "hunkjønn" or substantiv.gender == "hankjønn":
+        detDen = "den"
+    else:
+        detDen = "det"
+    if adjektiv()[-1] != "e":
+        plAdjektiv = adjektiv() + "e"
+    else:
+        adjektiv = adjektiv() + "t"
+        adjektiv = o.adjektiv(adjektiv)
+        plAdjektiv = adjektiv()
+    print(pronomen(),verb(),detDen,plAdjektiv,substantiv())
+  
+makeSentence(setningOrientertOrdliste)
