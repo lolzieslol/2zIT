@@ -1,3 +1,13 @@
+class ordklasseKlasseNavn:
+    def __init__(self,name : str, wordgender): 
+        self.name = name.lower()
+        self.gender = wordgender
+        
+        
+    def __call__(self):
+        return self.name
+
+        
 class Ordet:
     def __init__(self,name : str): 
         self.name = name.lower()
@@ -34,16 +44,19 @@ class Substantivet(Ordet):
     def ordklassenavn():
         ordklasse = "substantiv"
         nounClass = "intetkjønn"
-        return ordklasse, nounClass
+        ordklasseKlasseNavn(ordklasse, nounClass)
+        return ordklasseKlasseNavn
 
 class Pronomenet(Ordet):
-    def __init__(self, name: str):
+    def __init__(self, name: str, form=None):
         super().__init__(name)
+        self.form = form
         
     def ordklassenavn():
         ordklasse = "pronomen"
         nounClass = "intetkjønn"
-        return ordklasse, nounClass
+        ordklasse = ordklasseKlasseNavn(ordklasse, nounClass)
+        return ordklasse
         
 class DetPersonligePronomenet(Pronomenet):
     
@@ -66,12 +79,11 @@ class DetPersonligePronomenet(Pronomenet):
         self.gender = gender
         self.tall = tall
         
-        self.classname = "personlig pronomen"
-        
     def ordklassenavn():
-        ordklasse = "personlig pronomen"
-        nounClass = "intetkjønn"
-        return ordklasse, nounClass
+        # ordklasse = "personlig pronomen"
+        # nounClass = "intetkjønn"
+        ordklasse = ordklasseKlasseNavn("personlig pronomen","intetkjønn")
+        return ordklasse
 
 
 class Adjektivet(Ordet):
@@ -92,7 +104,7 @@ class Adverbet(Ordet):
     def ordklassenavn(self):
         ordklasse = "adverb"
         nounClass = "intetkjønn"
-        return ordklasse, nounClass
+        return ordklasseKlasseNavn(ordklasse, nounClass)
 
 class Konjunksjonen(Ordet):
     '''
@@ -106,7 +118,7 @@ class Konjunksjonen(Ordet):
         #TODO: gjør om til substantiv
         ordklasse = "subjunksjon"
         nounClass = "hankjønn"
-        return ordklasse, nounClass
+        return ordklasseKlasseNavn(ordklasse, nounClass)
 
 class Subjunksjonen(Konjunksjonen):
     '''
@@ -120,7 +132,7 @@ class Subjunksjonen(Konjunksjonen):
     def ordklassenavn(self):
         ordklasse = "subjunksjon"
         nounClass = "hankjønn"
-        return ordklasse, nounClass
+        return ordklasseKlasseNavn(ordklasse, nounClass)
     
 
 class Interjeksjonen(Ordet):
@@ -134,7 +146,7 @@ class Interjeksjonen(Ordet):
     def ordklassenavn(self):
         ordklasse = "subjunksjon"
         nounClass = "hankjønn"
-        return ordklasse, nounClass
+        return ordklasseKlasseNavn(ordklasse, nounClass)
     
     
 class Preposisjonen(Ordet):
@@ -144,4 +156,4 @@ class Preposisjonen(Ordet):
     def ordklassenavn(self):
         ordklasse = "preposisjon"
         nounClass = "hankjønn"
-        return ordklasse, nounClass
+        return ordklasseKlasseNavn(ordklasse, nounClass)
