@@ -47,6 +47,18 @@ class Substantivet(Ordet):
         ordklasseKlasseNavn(ordklasse, nounClass)
         return ordklasseKlasseNavn
 
+class Tallordet(Ordet):
+    def __init__(self, name: str, tall: int):
+        super().__init__(name)
+        self.tall = tall
+        
+    def ordklassenavn():
+        ordklasse = "tallord"
+        nounClass = "intetkjønn"
+        ordklasseKlasseNavn(ordklasse, nounClass)
+        return ordklasseKlasseNavn
+
+
 class Pronomenet(Ordet):
     def __init__(self, name: str, form=None):
         super().__init__(name)
@@ -115,7 +127,6 @@ class Konjunksjonen(Ordet):
         super().__init__(navn)
         
     def ordklassenavn(self):
-        #TODO: gjør om til substantiv
         ordklasse = "subjunksjon"
         nounClass = "hankjønn"
         return ordklasseKlasseNavn(ordklasse, nounClass)
