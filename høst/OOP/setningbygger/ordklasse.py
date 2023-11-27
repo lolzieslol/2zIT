@@ -37,15 +37,56 @@ class Verbet(Ordet):
         return ordklasse, nounClass
 
 class Substantivet(Ordet):
-    def __init__(self, name: str, wordgender: str):
+    def __init__(self, name: str, wordgender: str,plBøyning = "standard"):
         super().__init__(name)
-        self.gender = wordgender
+        self.wordgender = wordgender
+        self.plBøyning = plBøyning # standard / ingen / annen TODO: verifikasjon på rett innskrivning
         
     def ordklassenavn():
         ordklasse = "substantiv"
         nounClass = "intetkjønn"
         ordklasseKlasseNavn(ordklasse, nounClass)
         return ordklasseKlasseNavn
+    
+    def flertall(self):
+        #standard (backup)
+        flertall = self.name + "er"
+        
+        if self.plBøyning == "standard":
+            #hvis det slutter på en vokal
+            vokal : list = ["a","e","i","o","u","æ","ø","å"]
+            if self.name[-1] in vokal:
+                ordrot = self.name[:-1]
+                flertall = ordrot + "er"
+            return flertall
+        
+        #unntak
+        if self.plBøyning == "ingen":
+            flertall = self.name
+            return flertall
+            
+        if self.plBøyning == "annen":
+            if self.name == "bok":
+                flertall = "bøker"
+            return flertall
+    
+    def bestemt(self):
+        vokal : list = ["a","e","i","o","u","æ","ø","å"] #dropper y grunnet det ikke blir rett
+        if self.name[-1] in vokal:
+            ordrot = self.name[:-1]
+        else: 
+            ordrot = self.name
+        
+        if self.wordgender == "hankjønn":
+            bestemtform = ordrot + "en"
+        elif self.wordgender == "hunkjønn":
+            bestemtform = ordrot + "a"
+        else:
+            bestemtform = ordrot + "et"
+            
+        return bestemtform
+        
+        
 
 class Tallordet(Ordet):
     def __init__(self, name: str, tall: int):
@@ -72,7 +113,7 @@ class Pronomenet(Ordet):
         
 class DetPersonligePronomenet(Pronomenet):
     
-    def __init__(self, name: str, tall=3, form="subjekt", gender=None):
+    def __init__(self, name: str, tallte=3, form="subjekt", gender=None,enFlerTall = "entall"):
         super().__init__(name)
         
         form = form.lower()
@@ -80,7 +121,7 @@ class DetPersonligePronomenet(Pronomenet):
             gender = gender.lower()
         
         assert(form== "subjekt" or form== "nominativ" or form== "objekt" or form== "akkusativ" or form== "refleksiv" or form== "possessiv")
-        assert(tall <= 3 and tall >=1)
+        assert(tallte <= 3 and tallte >=1)
         
         if form=="objekt":
             form = "akkusativ"
@@ -89,7 +130,8 @@ class DetPersonligePronomenet(Pronomenet):
         
         self.form = form
         self.gender = gender
-        self.tall = tall
+        self.tallte = tallte
+        self.enFlerTall = enFlerTall
         
     def ordklassenavn():
         # ordklasse = "personlig pronomen"
@@ -99,10 +141,29 @@ class DetPersonligePronomenet(Pronomenet):
 
 
 class Adjektivet(Ordet):
-    def __init__(self, navn: str):
-        super().__init__(navn)
+    def __init__(self, name: str):
+        super().__init__(name)
         self.erBeskrivende = True
         
+    def flertall(self):
+        if self.name[-2:] == "el":
+            plAdjektiv = self.name + "le"
+            # print("adjektiv",adjektiv(),"+le")
+        elif self.name[-1] != "e":
+            plAdjektiv = self.name + "e"
+            # print(adjektiv(),"+e")
+        else:
+            plAdjektiv = self.name
+            ''' 
+        elif adjektiv() == "moderne" or adjektiv() =="spennende":
+            plAdjektiv = adjektiv()
+        else: #usikker på regelen brukt her TODO: finne ut hva greien er
+            adjektiv = adjektiv() + "t"
+            adjektiv = ok.Adjektivet(adjektiv)
+            plAdjektiv = adjektiv()
+            '''
+        return plAdjektiv
+    
     def ordklassenavn():
         ordklasse = "adjektiv"
         nounClass = "intetkjønn"

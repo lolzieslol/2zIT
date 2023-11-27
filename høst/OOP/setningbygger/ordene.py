@@ -1,7 +1,8 @@
 '''
-selve ordene definert ved hjelp av ordklasse
-uavhengig av main
+selve ordene definert ved hjelp av ordklasse + ordlister
 '''
+
+# "fjell" or self.name == "kjemi" or self.name == "fysikk" or self.name == "hav" or self.name == "kort": 
 
 import ordklasse as o
 
@@ -16,21 +17,21 @@ ordliste : list = [jeg,er,ikke,deg]
 
 #gruppe 2
 programvare = o.Substantivet("programvare","hankjønn")    
-det = o.Pronomenet("det")
-den = o.Pronomenet("den")
+det = o.DetPersonligePronomenet("det")
+den = o.DetPersonligePronomenet("den") 
 gruppe = o.Substantivet("gruppe","hankjønn")
 forsto = o.Verbet("forsto","fortid")
 energidrikk = o.Substantivet("energidrikk","hankjønn")
 latterlig = o.Adjektivet("latterlig")
 fornøyelig = o.Adjektivet("fornøyelig")
 øy = o.Substantivet("øy","hankjønn")
-kort = o.Substantivet("kort","intetkjønn")
+kort = o.Substantivet("kort","intetkjønn","ingen")
 mobil = o.Substantivet("mobil","hankjønn")
-innhold = o.Substantivet("innhold","intetkjønn")
+innhold = o.Substantivet("innhold","intetkjønn","ingen")
 fargerik = o.Adjektivet("fargerik")
 spennende = o.Adjektivet("spennende")
-fjell = o.Substantivet("fjell", "intetkjønn")
-hav = o.Substantivet("hav", "intetkjønn")
+fjell = o.Substantivet("fjell", "intetkjønn","ingen")
+hav = o.Substantivet("hav", "intetkjønn","ingen")
 stol = o.Substantivet("stol", "hunkjønn")
 bilde = o.Substantivet("bilde", "intetkjønn")
 person = o.Substantivet("person","hankjønn")
@@ -55,13 +56,13 @@ rolig = o.Adjektivet("rolig")
 
 bolle = o.Substantivet("bolle","hankjønn")
 vitenskap = o.Substantivet("vitenskap","hankjønn")
-fysikk = o.Substantivet("fysikk","hankjønn")
+fysikk = o.Substantivet("fysikk","hankjønn","ingen")
 informatikk = o.Substantivet("informatikk","hankjønn")
-bok = o.Substantivet("bok","hankjønn")
-kjemi = o.Substantivet("kjemi","hankjønn")
+bok = o.Substantivet("bok","hankjønn","annen")
+kjemi = o.Substantivet("kjemi","hankjønn","ingen")
 oppskrift = o.Substantivet("oppskrift","hankjønn")
 urt = o.Substantivet("urt","hankjønn")
-ide = o.Substantivet("ide","intetkjønn")
+ide = o.Substantivet("ide","hankjønn")
 verb = o.Substantivet("verb","intetkjønn")
 drikker = o.Verbet("drikker","presens")
 formulerer = o.Verbet("formulerer","presens")
@@ -94,7 +95,7 @@ materiel = o.Adjektivet("materiel")
 skadelig = o.Adjektivet("skadelig")
 ødelagt = o.Adjektivet("ødelagt")
 liste = o.Substantivet("liste","hankjønn")
-lese = o.Verbet("lese")
+leser = o.Verbet("leser")
 orddelingsfeil = o.Substantivet("orddelingsfeil","hankjønn")
 
 #gruppe 3
@@ -105,7 +106,20 @@ fem = o.Tallordet("fem",5)
 tusen = o.Tallordet("tusen",1000)
 sol = o.Substantivet("sol","hunkjønn")
 
-setningOrientertOrdliste : list = [jeg,er,ikke,deg,programvare,det,den,gruppe,forsto,energidrikk,latterlig,fornøyelig,øy,kort,mobil, innhold,fargerik,spennende,fjell,hav,stol,bilde, person,forfatter,du,hen,han,hun,spiser,lærer,utvikler,tester,stor,lykkelig,rask,moderne,rolig,bolle,vitenskap,fysikk,bok,informatikk, kjemi, oppskrift,urt,ide,verb,drikker,formulerer,klandrer, koselig,fornybar,tulling,faglitteratur,prøver,prøve,bygger,glad,sint,trist,frustrerende,beklagelig,forskning,studerer,presenterer,lykkelig,merkverdig,misfornøyd,oransje,gruve,ondskapsfull,kontroversiel,materiel,skadelig,ødelagt,liste,lese,orddelingsfeil,to,tre,fire,fem,tusen,sol]
+#gruppe 4
+interessant = o.Adjektivet("interessant")
+vi = o.DetPersonligePronomenet("vi",1,"subjekt",None,"flertall")
+dere = o.DetPersonligePronomenet("dere",2,"subjekt",None,"flertall")
+de = o.DetPersonligePronomenet("de",3,"subjekt",None,"flertall")
+hyggelig = o.Adjektivet("hyggelig")
+hygge = o.Substantivet("hygge","hankjønn")
+brann = o.Substantivet("brann","hankjønn")
+foreslår = o.Verbet("foreslår")
+bibliografi = o.Substantivet("bibliografi","hankjønn")
+bibliotek = o.Substantivet("bibliotek","intetkjønn")
+miljø = o.Substantivet("miljø","intetkjønn","ingen")
+
+setningOrientertOrdliste : list = [jeg,er,ikke,deg,programvare,det,den,gruppe,forsto,energidrikk,latterlig,fornøyelig,øy,kort,mobil, innhold,fargerik,spennende,fjell,hav,stol,bilde, person,forfatter,du,hen,han,hun,spiser,lærer,utvikler,tester,stor,lykkelig,rask,moderne,rolig,bolle,vitenskap,fysikk,bok,informatikk, kjemi, oppskrift,urt,ide,verb,drikker,formulerer,klandrer, koselig,fornybar,tulling,faglitteratur,prøver,prøve,bygger,glad,sint,trist,frustrerende,beklagelig,forskning,studerer,presenterer,lykkelig,merkverdig,misfornøyd,oransje,gruve,ondskapsfull,kontroversiel,materiel,skadelig,ødelagt,liste,leser,orddelingsfeil,to,tre,fire,fem,tusen,sol,interessant,vi,dere,de,hyggelig,brann,foreslår,bibliografi,bibliotek,vedkommende,miljø]
 
 
-setningOrientertOrdlisteForståelig : list = [jeg,er,ikke,deg,programvare,det,den,gruppe,forsto,energidrikk,latterlig,fornøyelig,øy,kort,mobil, innhold,fargerik,spennende,fjell,hav,stol,bilde, person,forfatter,du,hen,han,hun,lærer,utvikler,tester,stor,lykkelig,moderne,rolig,bolle,vitenskap,fysikk,bok,informatikk, kjemi, oppskrift,urt,ide,verb,formulerer,klandrer, koselig,fornybar,tulling,faglitteratur,prøver,prøve,bygger,glad,sint,trist,frustrerende,beklagelig,forskning,studerer,presenterer,lykkelig,merkverdig,misfornøyd,oransje,gruve,ondskapsfull,kontroversiel,materiel,skadelig,ødelagt,liste,lese,orddelingsfeil,to,tre,fire,fem,tusen,sol]
+setningOrientertOrdlisteForståelig : list = [jeg,er,ikke,deg,programvare,det,den,gruppe,forsto,energidrikk,latterlig,fornøyelig,øy,kort,mobil, innhold,fargerik,spennende,fjell,hav,stol,bilde, person,forfatter,du,hen,han,hun,lærer,utvikler,tester,stor,lykkelig,moderne,rolig,bolle,vitenskap,fysikk,bok,informatikk, kjemi, oppskrift,urt,ide,verb,formulerer,klandrer, koselig,fornybar,tulling,faglitteratur,prøver,prøve,bygger,glad,sint,trist,frustrerende,beklagelig,forskning,studerer,presenterer,lykkelig,merkverdig,misfornøyd,oransje,gruve,ondskapsfull,kontroversiel,materiel,skadelig,ødelagt,liste,leser,orddelingsfeil,to,tre,fire,fem,tusen,sol,interessant,vi,dere,de,hyggelig,brann,foreslår,bibliotek,bibliografi,vedkommende,miljø]

@@ -5,36 +5,45 @@ program som bygger setninger.
 '''
 from random import randint
 
-import ordklasse as ok
+import ordklasse as ok 
 import ordene as ordobjekt
-import setningstrukturer as setningen
+import setningstrukturer as lagSetningMedStruktur
 from ordsortering import tilfeldigIBestemtOrdKlasse
 
 def genererAvsnitt(wordlist):
     avsnitt = ""
     
     #antall setninger i hvert avsnitt
-    avsnittLengde = range(1,10)
-    #antall ord i hver setning 
-    setningslengde = range(1,7)
+    avsnittLengde = range(6,15)
     
     for setning in avsnittLengde:
-        setninger = setningen.PVDAN(wordlist) 
-        avsnitt += setninger + ". "
+        randomDecider = randint(1,3)
+        match randomDecider:
+            case 1:
+                setningen = lagSetningMedStruktur.PVDAN(wordlist) 
+            case 2:
+                setningen = lagSetningMedStruktur.PVTS(wordlist)
+            case 3:
+                setningen = lagSetningMedStruktur.SEA(wordlist)
+        
+        setningen = setningen[0].upper() + setningen[1:]        
+        avsnitt += setningen + ". "
             
     return avsnitt
 
 print(genererAvsnitt(ordobjekt.setningOrientertOrdlisteForståelig))
+
+# print(lagSetningMedStruktur.PEA(ordobjekt.setningOrientertOrdlisteForståelig))
 '''
 i =0
 while i<10:
-    setningen.PVTS(ordobjekt.setningOrientertOrdlisteForståelig)
+    lagSetningMedStruktur.PVTS(ordobjekt.setningOrientertOrdlisteForståelig)
     i +=1
 
 
 i =0
 while i<10:
-    setningen.PVDAN(ordobjekt.setningOrientertOrdlisteForståelig)
+    lagSetningMedStruktur.PVDAN(ordobjekt.setningOrientertOrdlisteForståelig)
     i +=1
 ''' 
 # print(ok.DetPersonligePronomenet.ordklassenavn()())
