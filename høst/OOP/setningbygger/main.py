@@ -31,8 +31,9 @@ def genererAvsnitt(wordlist):
             
     return avsnitt
 
-print(genererAvsnitt(ordobjekt.setningOrientertOrdlisteForståelig))
+# print(genererAvsnitt(ordobjekt.setningOrientertOrdlisteForståelig))
 
+# print(ordobjekt.fire.ikkeTall)
 # print(lagSetningMedStruktur.PEA(ordobjekt.setningOrientertOrdlisteForståelig))
 '''
 i =0

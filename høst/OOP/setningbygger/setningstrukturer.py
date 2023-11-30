@@ -59,9 +59,9 @@ def PVTS(wordlist : list): #pronomen verb (antall) substantiv'''
     verb = sorter.tilfeldigIBestemtOrdKlasse(wordlist, ok.Verbet)
     
     substantiv = sorter.tilfeldigIBestemtOrdKlasse(wordlist,ok.Substantivet)
-    plsubstantiv = substantiv.flertall()
+    plsubstantiv = substantiv.flertallUbestemt()
     
-    tall = sorter.tilfeldigIBestemtOrdKlasse(wordlist,ok.Tallordet)
+    tall = sorter.tilfeldigIBestemtOrdKlasse(wordlist,ok.Mengdeordet)
     
     
     setning = f"{pronomen()} {verb()} {tall()} {plsubstantiv}"
@@ -89,7 +89,7 @@ def SEA(wordlist : list): #pronomen/substantiv (subjekt) "er" adjektiv
             
         case 2:
             subjektObjekt = sorter.tilfeldigIBestemtOrdKlasse(wordlist,ok.Substantivet)
-            subjektString = subjektObjekt.bestemt()
+            subjektString = subjektObjekt.entallBestemt()
     
     setning = f"{subjektString} {er()} {adjektivString}"
     return setning

@@ -21,7 +21,7 @@ class Ordet:
     def ordklassenavn():
         ordklasse = "ord"
         nounClass = "intetkjønn"
-        return ordklasse, nounClass
+        return ordklasseKlasseNavn(ordklasse, nounClass)
         
     # classinfo
     
@@ -34,21 +34,35 @@ class Verbet(Ordet):
     def ordklassenavn():
         ordklasse = "verb"
         nounClass = "intetkjønn"
-        return ordklasse, nounClass
+        return ordklasseKlasseNavn(ordklasse, nounClass)
+    
+    def definisjon():
+        definisjonen = "en ordklasse som består av ord som betegner en handling, tilstand eller overgang, også kalt 'gjøre-ord'"
+        return definisjonen
+        
 
 class Substantivet(Ordet):
     def __init__(self, name: str, wordgender: str,plBøyning = "standard"):
         super().__init__(name)
-        self.wordgender = wordgender
-        self.plBøyning = plBøyning # standard / ingen / annen TODO: verifikasjon på rett innskrivning
+        
+        plBøyning = plBøyning.lower()
+        muligeBøyninger : list = ["standard","ingen","annen"]
+        assert(plBøyning in muligeBøyninger)
+        
+        self.wordgender = wordgender #TODO: legg til flere kjønn av gangen
+        self.plBøyning = plBøyning
         
     def ordklassenavn():
         ordklasse = "substantiv"
         nounClass = "intetkjønn"
-        ordklasseKlasseNavn(ordklasse, nounClass)
-        return ordklasseKlasseNavn
+        return ordklasseKlasseNavn(ordklasse, nounClass)
+ 
     
-    def flertall(self):
+    def definisjon():
+        definisjonen = "en ordklasse som består av ord som betegner skapning, ting, egenskap, handling, tilstand eller abstrakt fenomen"
+        return definisjonen
+    
+    def flertallUbestemt(self):
         #standard (backup)
         flertall = self.name + "er"
         
@@ -70,7 +84,7 @@ class Substantivet(Ordet):
                 flertall = "bøker"
             return flertall
     
-    def bestemt(self):
+    def entallBestemt(self):
         vokal : list = ["a","e","i","o","u","æ","ø","å"] #dropper y grunnet det ikke blir rett
         if self.name[-1] in vokal:
             ordrot = self.name[:-1]
@@ -86,18 +100,39 @@ class Substantivet(Ordet):
             
         return bestemtform
         
+class Determinativet(Ordet):
+    def __init__(self, name: str):
+        super().__init__(name)
         
+    def ordklassenavn():
+        ordklasse = "determinativ"
+        nounClass = "intetkjønn"
+        return ordklasseKlasseNavn(ordklasse, nounClass)
 
-class Tallordet(Ordet):
+class Mengdeordet(Determinativet):
     def __init__(self, name: str, tall: int):
         super().__init__(name)
         self.tall = tall
         
+        def ikkeTall(tall):
+            tall = str(tall)
+            if not tall.isnumeric:
+                self.ikkeTall = True
+            else:
+                self.ikkeTall = False
+            return self.ikkeTall
+        
+        ikkeTall(tall)
+        
     def ordklassenavn():
-        ordklasse = "tallord"
+        ordklasse = "mengdeord"
         nounClass = "intetkjønn"
-        ordklasseKlasseNavn(ordklasse, nounClass)
-        return ordklasseKlasseNavn
+        return ordklasseKlasseNavn(ordklasse, nounClass)
+        
+    
+    def definisjon():
+        definisjonen = "en ordklasse som betegner determinativer som angir antall eller mengde"
+        return definisjonen
 
 
 class Pronomenet(Ordet):
@@ -108,8 +143,11 @@ class Pronomenet(Ordet):
     def ordklassenavn():
         ordklasse = "pronomen"
         nounClass = "intetkjønn"
-        ordklasse = ordklasseKlasseNavn(ordklasse, nounClass)
-        return ordklasse
+        return ordklasseKlasseNavn(ordklasse, nounClass)
+    
+    def definisjon():
+        definisjonen = "en ordklasse som består av ord som viser til, erstatter eller endrer et tidligere nevnt eller underforstått ord eller uttrykk i den samme språklige sammenhengen eller den aktuelle talesituasjonen, også kalt henvisningsord"
+        return definisjonen
         
 class DetPersonligePronomenet(Pronomenet):
     
@@ -134,10 +172,13 @@ class DetPersonligePronomenet(Pronomenet):
         self.enFlerTall = enFlerTall
         
     def ordklassenavn():
-        # ordklasse = "personlig pronomen"
-        # nounClass = "intetkjønn"
-        ordklasse = ordklasseKlasseNavn("personlig pronomen","intetkjønn")
-        return ordklasse
+        ordklasse = "personlig pronomen"
+        nounClass = "intetkjønn"
+        return ordklasseKlasseNavn(ordklasse,nounClass)
+    
+    def definisjon():
+        definisjonen = "en ordklasse som består av ord som kan stå i stedet for et substantiv eller navn"
+        return definisjonen
 
 
 class Adjektivet(Ordet):
@@ -167,31 +208,43 @@ class Adjektivet(Ordet):
     def ordklassenavn():
         ordklasse = "adjektiv"
         nounClass = "intetkjønn"
-        return ordklasse, nounClass
+        return ordklasseKlasseNavn(ordklasse, nounClass)
+    
+    def definisjon():
+        definisjonen = "en ordklasse som består av ord som uttrykker en egenskap og ofte står som bestemmelse til et substantiv"
+        return definisjonen
 
 class Adverbet(Ordet):
-    def __init__(self, navn: str):
-        super().__init__(navn)
+    def __init__(self, name: str):
+        super().__init__(name)
         self.erBeskrivende = True
         
     def ordklassenavn(self):
         ordklasse = "adverb"
         nounClass = "intetkjønn"
         return ordklasseKlasseNavn(ordklasse, nounClass)
+    
+    def definisjon():
+        definisjonen = "en ordklasse som består av ord som uttrykker tid, sted, måte, grad, nektelse, den talendes holdning e.l., som kan stå til et verb, et adjektiv, et annet adverb eller (en del av) en setning"
+        return definisjonen
 
 class Konjunksjonen(Ordet):
     '''
     En konjunksjon er et ord eller en gruppe av ord som brukes til å koble sammen ord, setninger eller setningsdeler
     f.eks "og", "eller", "men" 
     '''
-    def __init__(self, navn: str):
-        super().__init__(navn)
+    def __init__(self, name: str):
+        super().__init__(name)
         
     def ordklassenavn(self):
         ordklasse = "subjunksjon"
         nounClass = "hankjønn"
         return ordklasseKlasseNavn(ordklasse, nounClass)
 
+    def definisjon():
+        definisjonen = "en ordklasse som består av ubøyelige ord som binder sammen og sideordner ord, fraser eller setninger"
+        return definisjonen
+    
 class Subjunksjonen(Konjunksjonen):
     '''
     En subjunksjon, også kalt "underordnet konjunksjon" er et ord eller uttrykk 
@@ -206,6 +259,9 @@ class Subjunksjonen(Konjunksjonen):
         nounClass = "hankjønn"
         return ordklasseKlasseNavn(ordklasse, nounClass)
     
+    def definisjon():
+        definisjonen = "en ordklasse som består av ubøyelige ord som innleder en leddsetning (eller en infinitivskonstruksjon)"
+        return definisjonen
 
 class Interjeksjonen(Ordet):
     '''
@@ -220,6 +276,9 @@ class Interjeksjonen(Ordet):
         nounClass = "hankjønn"
         return ordklasseKlasseNavn(ordklasse, nounClass)
     
+    def definisjon():
+        definisjonen = "en ordklasse som består av ubøyelige ord som brukes alene eller som et uavhengig innskudd i en setning som uttrykk for et følelsesbetonet utbrudd eller i en kommunikativ funksjon (bl.a. svarord) eller for å etterligne lyder, også kalt utropsord"
+        return definisjonen
     
 class Preposisjonen(Ordet):
     def __init__(self, navn: str):
@@ -229,3 +288,7 @@ class Preposisjonen(Ordet):
         ordklasse = "preposisjon"
         nounClass = "hankjønn"
         return ordklasseKlasseNavn(ordklasse, nounClass)
+    
+    def definisjon():
+        definisjonen = "ordklasse som består av ubøyelige ord som står foran et substantiv, substantivisk ord eller ledd og angir et steds-, tids-, årsaksforhold e.l. mellom dette og et annet ord, ledd i setningen"
+        return definisjonen
