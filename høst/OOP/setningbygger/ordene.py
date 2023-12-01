@@ -99,7 +99,7 @@ leser = o.Verbet("leser")
 orddelingsfeil = o.Substantivet("orddelingsfeil","hankjønn")
 
 #gruppe 3
-to = o.Mengdeordet("to","alt")
+to = o.Mengdeordet("to","2") 
 tre = o.Mengdeordet("tre",3)
 fire = o.Mengdeordet("fire",4)
 fem = o.Mengdeordet("fem",5)
@@ -119,7 +119,25 @@ bibliografi = o.Substantivet("bibliografi","hankjønn")
 bibliotek = o.Substantivet("bibliotek","intetkjønn")
 miljø = o.Substantivet("miljø","intetkjønn","ingen")
 
-setningOrientertOrdliste : list = [jeg,er,ikke,deg,programvare,det,den,gruppe,forsto,energidrikk,latterlig,fornøyelig,øy,kort,mobil, innhold,fargerik,spennende,fjell,hav,stol,bilde, person,forfatter,du,hen,han,hun,spiser,lærer,utvikler,tester,stor,lykkelig,rask,moderne,rolig,bolle,vitenskap,fysikk,bok,informatikk, kjemi, oppskrift,urt,ide,verb,drikker,formulerer,klandrer, koselig,fornybar,tulling,faglitteratur,prøver,prøve,bygger,glad,sint,trist,frustrerende,beklagelig,forskning,studerer,presenterer,lykkelig,merkverdig,misfornøyd,oransje,gruve,ondskapsfull,kontroversiel,materiel,skadelig,ødelagt,liste,leser,orddelingsfeil,to,tre,fire,fem,tusen,sol,interessant,vi,dere,de,hyggelig,brann,foreslår,bibliografi,bibliotek,vedkommende,miljø]
+#gruppe 5
+som = o.DetRelativePronomenet("som")
+man = o.Pronomenet("man")
+hvem = o.SpørrePronomenet("hvem")
+hva = o.SpørrePronomenet("hva")
+mystisk = o.Adjektivet("mystisk")
+stille = o.Adverbet("stille")
+raskt = o.Adverbet("raskt")
+effektivt = o.Adverbet("effektivt")
+forsiktig = o.Adverbet("forsiktig")
+heldigvis = o.Adverbet("heldigvis")
+fornuftig = o.Adverbet("fornuftig")
+ingen = o.Mengdeordet("ingen",0)
+alle = o.Mengdeordet("alt",None) #sære regler (implementere?) (all/alle/alt)
+tar = o.Verbet("tar")
+forandrer = o.Verbet("forandrer")
+endret = o.Verbet("endret","fortid")
+
+setningOrientertOrdliste : list = [jeg,er,ikke,deg,programvare,det,den,gruppe,forsto,energidrikk,latterlig,fornøyelig,øy,kort,mobil, innhold,fargerik,spennende,fjell,hav,stol,bilde, person,forfatter,du,hen,han,hun,spiser,lærer,utvikler,tester,stor,lykkelig,rask,moderne,rolig,bolle,vitenskap,fysikk,bok,informatikk, kjemi, oppskrift,urt,ide,verb,drikker,formulerer,klandrer, koselig,fornybar,tulling,faglitteratur,prøver,prøve,bygger,glad,sint,trist,frustrerende,beklagelig,forskning,studerer,presenterer,lykkelig,merkverdig,misfornøyd,oransje,gruve,ondskapsfull,kontroversiel,materiel,skadelig,ødelagt,liste,leser,orddelingsfeil,to,tre,fire,fem,tusen,sol,interessant,vi,dere,de,hyggelig,brann,foreslår,bibliografi,bibliotek,vedkommende,miljø,som,man,hvem,hva,mystisk,stille,raskt,effektivt,forsiktig,heldigvis,fornuftig,ingen,alle,forandrer,endret]
 
 
-setningOrientertOrdlisteForståelig : list = [jeg,er,ikke,deg,programvare,det,den,gruppe,forsto,energidrikk,latterlig,fornøyelig,øy,kort,mobil, innhold,fargerik,spennende,fjell,hav,stol,bilde, person,forfatter,du,hen,han,hun,lærer,utvikler,tester,stor,lykkelig,moderne,rolig,bolle,vitenskap,fysikk,bok,informatikk, kjemi, oppskrift,urt,ide,verb,formulerer,klandrer, koselig,fornybar,tulling,faglitteratur,prøver,prøve,bygger,glad,sint,trist,frustrerende,beklagelig,forskning,studerer,presenterer,lykkelig,merkverdig,misfornøyd,oransje,gruve,ondskapsfull,kontroversiel,materiel,skadelig,ødelagt,liste,leser,orddelingsfeil,to,tre,fire,fem,tusen,sol,interessant,vi,dere,de,hyggelig,brann,foreslår,bibliotek,bibliografi,vedkommende,miljø]
+setningOrientertOrdlisteForståelig : list = [jeg,er,ikke,deg,programvare,det,den,gruppe,forsto,energidrikk,latterlig,fornøyelig,øy,kort,mobil, innhold,fargerik,spennende,fjell,hav,stol,bilde, person,forfatter,du,hen,han,hun,lærer,utvikler,tester,stor,lykkelig,moderne,rolig,bolle,vitenskap,fysikk,bok,informatikk, kjemi, oppskrift,urt,ide,verb,formulerer,klandrer, koselig,fornybar,tulling,faglitteratur,prøver,prøve,bygger,glad,sint,trist,frustrerende,beklagelig,forskning,studerer,presenterer,lykkelig,merkverdig,misfornøyd,oransje,gruve,ondskapsfull,kontroversiel,materiel,skadelig,ødelagt,liste,leser,orddelingsfeil,to,tre,fire,fem,tusen,sol,interessant,vi,dere,de,hyggelig,brann,foreslår,bibliotek,bibliografi,vedkommende,miljø,som,man,hvem,hva,mystisk,stille,raskt,effektivt,forsiktig,heldigvis,fornuftig,ingen,forandrer,endret]

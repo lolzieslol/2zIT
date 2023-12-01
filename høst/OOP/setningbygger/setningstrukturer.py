@@ -1,96 +1,89 @@
 from random import randint
 
-import ordsortering as sorter
+import ordhenting as hent
 import ordklasse as ok
-
-def erPronomenetSubjekt(wordlist,pronomen): #passer på at pronomenet er subjekt/nominativ
-        if pronomen.__class__ != ok.DetPersonligePronomenet:
-            # ordklasse, formen = pronomen.__class__.ordklassenavn()
-            # print(f"{pronomen()} er {ordklasse} og  ikke et personlig pronomen")
-            return pronomen
-        
-        if pronomen.form == "nominativ":
-            # print(f"{pronomen()} er subjektform")
-            return pronomen   
-        
-        '''
-        print(f"{pronomen()} er {pronomen.form} og ikke subjektform")
-        
-        print("kjører for", pronomen())
-        '''
-        
-        feil = 0
-        while pronomen.form != "nominativ":
-            pronomen = sorter.tilfeldigIBestemtOrdKlasse(wordlist, ok.Pronomenet)
-            feil +=1
-            if feil>=5:
-                print("oops'", pronomen(),"'funker ikke")
-                return ok.Pronomenet("hen")
-        
-        return pronomen
 
 def PVDAN(wordlist): #pronoun verb [det/den] adjective noun
     
     #henter tilfeldig ord til setningen
-    pronomen = sorter.tilfeldigIBestemtOrdKlasse(wordlist, ok.DetPersonligePronomenet)
-    pronomen = erPronomenetSubjekt(wordlist, pronomen)
-    verb = sorter.tilfeldigIBestemtOrdKlasse(wordlist, ok.Verbet)
-    substantiv = sorter.tilfeldigIBestemtOrdKlasse(wordlist,ok.Substantivet)
-    adjektiv = sorter.tilfeldigIBestemtOrdKlasse(wordlist,ok.Adjektivet)
+    pronomenObjekt = hent.tilfeldigOrdIBestemtOrdKlasse(wordlist, ok.DetPersonligePronomenet)
+    pronomenObjekt = hent.passPåAtPronomenetErSubjekt(wordlist, pronomenObjekt)
+    verbObjekt = hent.tilfeldigOrdIBestemtOrdKlasse(wordlist, ok.Verbet)
+    substantivObjekt = hent.tilfeldigOrdIBestemtOrdKlasse(wordlist,ok.Substantivet)
+    adjektivObjekt = hent.tilfeldigOrdIBestemtOrdKlasse(wordlist,ok.Adjektivet)
     
     #den eller det
-    if substantiv.wordgender == "intetkjønn":
-        detDen = "det"
+    if substantivObjekt.wordgender == "intetkjønn":
+        detDenString = "det"
     else:
-        detDen = "den"
+        detDenString = "den"
     
     #bøyer adjektiv
-    plAdjektiv = adjektiv.flertall()
+    plAdjektivObjekt = adjektivObjekt.flertall()
         
-    setning = f"{pronomen()} {verb()} {detDen} {plAdjektiv} {substantiv()}"
+    setning = f"{pronomenObjekt()} {verbObjekt()} {detDenString} {plAdjektivObjekt()} {substantivObjekt()}."
     return setning
     
     
     
 def PVTS(wordlist : list): #pronomen verb (antall) substantiv'''
-    pronomen = sorter.tilfeldigIBestemtOrdKlasse(wordlist, ok.DetPersonligePronomenet)
-    pronomen = erPronomenetSubjekt(wordlist, pronomen)
+    pronomenObjekt = hent.tilfeldigOrdIBestemtOrdKlasse(wordlist, ok.DetPersonligePronomenet)
+    pronomenObjekt = hent.passPåAtPronomenetErSubjekt(wordlist, pronomenObjekt)
     
-    verb = sorter.tilfeldigIBestemtOrdKlasse(wordlist, ok.Verbet)
+    verbObjekt = hent.tilfeldigOrdIBestemtOrdKlasse(wordlist, ok.Verbet)
     
-    substantiv = sorter.tilfeldigIBestemtOrdKlasse(wordlist,ok.Substantivet)
-    plsubstantiv = substantiv.flertallUbestemt()
+    substantivObjekt = hent.tilfeldigOrdIBestemtOrdKlasse(wordlist,ok.Substantivet)
+    plsubstantivString = substantivObjekt.ubestemtFlertall
     
-    tall = sorter.tilfeldigIBestemtOrdKlasse(wordlist,ok.Mengdeordet)
+    mengdeObjekt = hent.tilfeldigOrdIBestemtOrdKlasse(wordlist,ok.Mengdeordet)
     
     
-    setning = f"{pronomen()} {verb()} {tall()} {plsubstantiv}"
+    setning = f"{pronomenObjekt()} {verbObjekt()} {mengdeObjekt()} {plsubstantivString}."
     return setning
     
 #jeg spiser et eple
 
 def SEA(wordlist : list): #pronomen/substantiv (subjekt) "er" adjektiv
+    er = ok.Verbet("er")
+    adjektivObjekt = hent.tilfeldigOrdIBestemtOrdKlasse(wordlist,ok.Adjektivet)
     
-    
-    er = ok.Verbet("er","presens")
-    adjektivObjekt = sorter.tilfeldigIBestemtOrdKlasse(wordlist,ok.Adjektivet)
+    # adjektivString = adjektivObjekt.bøydEtterSubstantiv()
     adjektivString = adjektivObjekt()
-    randomDecider = randint(1,2)
+    substantivObjekt = hent.tilfeldigSubjektOrd(wordlist)
+    # 
+            # if subjektObjekt.enFlerTall == "flertall":
+            #     adjektivString = adjektivObjekt.flertall()
     
-    match randomDecider:
-        case 1:
-            subjektObjekt = sorter.tilfeldigIBestemtOrdKlasse(wordlist,ok.DetPersonligePronomenet) 
-            subjektObjekt = erPronomenetSubjekt(wordlist, subjektObjekt)
-            
-            if subjektObjekt.enFlerTall == "flertall":
-                adjektivString = adjektivObjekt.flertall()
-            
-            subjektString = subjektObjekt()
-            
-        case 2:
-            subjektObjekt = sorter.tilfeldigIBestemtOrdKlasse(wordlist,ok.Substantivet)
-            subjektString = subjektObjekt.entallBestemt()
-    
-    setning = f"{subjektString} {er()} {adjektivString}"
+    setning = f"{substantivObjekt()} {er()} {adjektivString}."
     return setning
     
+def SpVSu(wordlist : list): #spørrepronomen verb substantiv (SVO/OVS)
+    spørrepronomenObjekt = hent.tilfeldigOrdIBestemtOrdKlasse(wordlist,ok.SpørrePronomenet)
+    verbObjekt = hent.tilfeldigOrdIBestemtOrdKlasse(wordlist,ok.Verbet)
+    substantivObjekt = hent.tilfeldigOrdIBestemtOrdKlasse(wordlist,ok.Substantivet)
+    
+    setning = f"{spørrepronomenObjekt()} {verbObjekt()} {substantivObjekt()}?"
+    return setning
+
+def DVMASA(wordlist : list): # Det/den verb mengdeord adjektiv substantiv adverb 
+    verbObjekt = hent.tilfeldigOrdIBestemtOrdKlasse(wordlist,ok.Verbet)
+    mengdeordObjekt = hent.tilfeldigOrdIBestemtOrdKlasse(wordlist,ok.Mengdeordet)
+    adjektivObjekt =  hent.tilfeldigOrdIBestemtOrdKlasse(wordlist,ok.Adjektivet)
+    substantivObjekt =  hent.tilfeldigOrdIBestemtOrdKlasse(wordlist, ok.Substantivet)
+    adverbObjekt =  hent.tilfeldigOrdIBestemtOrdKlasse(wordlist, ok.Adverbet)
+    
+    adjektivObjekt = adjektivObjekt.flertall()
+    
+    substantivObjekt = hent.tilfeldigSubjektOrd(wordlist)
+
+    enFlerTall = substantivObjekt.tallTilform(mengdeordObjekt)
+    if enFlerTall != "entall":
+        substantivString = substantivObjekt.ubestemtFlertall
+    else:
+        substantivString = substantivObjekt()
+        
+    
+    # adverbObjekt.bøydEtterSubstantiv(substantivObjekt)
+    
+    setning = f"{substantivObjekt()} {verbObjekt()} {mengdeordObjekt()} {adjektivObjekt()} {substantivString()} {adverbObjekt()}."
+    return setning

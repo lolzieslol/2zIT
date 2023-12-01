@@ -1,7 +1,7 @@
 class ordklasseKlasseNavn:
     def __init__(self,name : str, wordgender): 
         self.name = name.lower()
-        self.gender = wordgender
+        self.wordgender = wordgender
         
         
     def __call__(self):
@@ -41,64 +41,6 @@ class Verbet(Ordet):
         return definisjonen
         
 
-class Substantivet(Ordet):
-    def __init__(self, name: str, wordgender: str,plBøyning = "standard"):
-        super().__init__(name)
-        
-        plBøyning = plBøyning.lower()
-        muligeBøyninger : list = ["standard","ingen","annen"]
-        assert(plBøyning in muligeBøyninger)
-        
-        self.wordgender = wordgender #TODO: legg til flere kjønn av gangen
-        self.plBøyning = plBøyning
-        
-    def ordklassenavn():
-        ordklasse = "substantiv"
-        nounClass = "intetkjønn"
-        return ordklasseKlasseNavn(ordklasse, nounClass)
- 
-    
-    def definisjon():
-        definisjonen = "en ordklasse som består av ord som betegner skapning, ting, egenskap, handling, tilstand eller abstrakt fenomen"
-        return definisjonen
-    
-    def flertallUbestemt(self):
-        #standard (backup)
-        flertall = self.name + "er"
-        
-        if self.plBøyning == "standard":
-            #hvis det slutter på en vokal
-            vokal : list = ["a","e","i","o","u","æ","ø","å"]
-            if self.name[-1] in vokal:
-                ordrot = self.name[:-1]
-                flertall = ordrot + "er"
-            return flertall
-        
-        #unntak
-        if self.plBøyning == "ingen":
-            flertall = self.name
-            return flertall
-            
-        if self.plBøyning == "annen":
-            if self.name == "bok":
-                flertall = "bøker"
-            return flertall
-    
-    def entallBestemt(self):
-        vokal : list = ["a","e","i","o","u","æ","ø","å"] #dropper y grunnet det ikke blir rett
-        if self.name[-1] in vokal:
-            ordrot = self.name[:-1]
-        else: 
-            ordrot = self.name
-        
-        if self.wordgender == "hankjønn":
-            bestemtform = ordrot + "en"
-        elif self.wordgender == "hunkjønn":
-            bestemtform = ordrot + "a"
-        else:
-            bestemtform = ordrot + "et"
-            
-        return bestemtform
         
 class Determinativet(Ordet):
     def __init__(self, name: str):
@@ -114,15 +56,13 @@ class Mengdeordet(Determinativet):
         super().__init__(name)
         self.tall = tall
         
-        def ikkeTall(tall):
-            tall = str(tall)
-            if not tall.isnumeric:
-                self.ikkeTall = True
-            else:
-                self.ikkeTall = False
-            return self.ikkeTall
+        tall = str(tall)
+        if tall.isnumeric():
+            self.erTall = True
+        else:
+            self.erTall = False
         
-        ikkeTall(tall)
+        
         
     def ordklassenavn():
         ordklasse = "mengdeord"
@@ -180,31 +120,48 @@ class DetPersonligePronomenet(Pronomenet):
         definisjonen = "en ordklasse som består av ord som kan stå i stedet for et substantiv eller navn"
         return definisjonen
 
+class DetRelativePronomenet(Pronomenet):
+    def __init__(self,name : str, form=None):
+        super().__init__(name)
+    
+    
+    def ordklassenavn():
+        ordklasse = "relativt pronomen"
+        nounClass = "intetkjønn"
+        return ordklasseKlasseNavn(ordklasse,nounClass)
+    
+    def definisjon():
+        definisjonen = "en ordklasse som består av pronomen som innleder en underordnet setning og viser tilbake til et ord (substantiv, annet pronomen eller lignende) i den overordnede setningen."
+        return definisjonen
+    
+class SpørrePronomenet(Pronomenet):
+    def __init__(self, name: str, form=None):
+        super().__init__(name, form)
+        
+    def ordklassenavn():
+        ordklasse = "spørrepronomen"
+        nounClass = "intetkjønn"
+        return ordklasseKlasseNavn(ordklasse,nounClass)
 
-class Adjektivet(Ordet):
+class Biordet(Ordet):
     def __init__(self, name: str):
         super().__init__(name)
         self.erBeskrivende = True
         
-    def flertall(self):
-        if self.name[-2:] == "el":
-            plAdjektiv = self.name + "le"
-            # print("adjektiv",adjektiv(),"+le")
-        elif self.name[-1] != "e":
-            plAdjektiv = self.name + "e"
-            # print(adjektiv(),"+e")
-        else:
-            plAdjektiv = self.name
-            ''' 
-        elif adjektiv() == "moderne" or adjektiv() =="spennende":
-            plAdjektiv = adjektiv()
-        else: #usikker på regelen brukt her TODO: finne ut hva greien er
-            adjektiv = adjektiv() + "t"
-            adjektiv = ok.Adjektivet(adjektiv)
-            plAdjektiv = adjektiv()
-            '''
-        return plAdjektiv
+    def definisjon():
+        definisjonen = "ikke en klasse, men beskriver både adjektiv og adverb - beskrivende ord."
+        return definisjonen
     
+    def ordklassenavn():
+        ordklasse = "biord"
+        nounClass = "intetkjønn"
+        return ordklasseKlasseNavn(ordklasse,nounClass)
+    
+        
+class Adjektivet(Biordet):
+    def __init__(self, name: str):
+        super().__init__(name)
+        
     def ordklassenavn():
         ordklasse = "adjektiv"
         nounClass = "intetkjønn"
@@ -213,8 +170,29 @@ class Adjektivet(Ordet):
     def definisjon():
         definisjonen = "en ordklasse som består av ord som uttrykker en egenskap og ofte står som bestemmelse til et substantiv"
         return definisjonen
+        
+    def flertall(self):
+        if self.name[-2:] == "el":
+            self.name += "le"
+    
+        elif self.name[-1] != "e":
+            self.name += "e"
+            
+        elif self.name == "moderne" or self.name =="spennende":
+            pass
+       
+        return self
+    
+    def bøydEtterSubstantiv(self,substantiv):
+        if substantiv.wordgender == "intetkjønn":
+            bøydform = self.name + "t"  
+        else:
+            bøydform = self.name
+        return bøydform      
+        
+    
 
-class Adverbet(Ordet):
+class Adverbet(Biordet):
     def __init__(self, name: str):
         super().__init__(name)
         self.erBeskrivende = True
@@ -292,3 +270,79 @@ class Preposisjonen(Ordet):
     def definisjon():
         definisjonen = "ordklasse som består av ubøyelige ord som står foran et substantiv, substantivisk ord eller ledd og angir et steds-, tids-, årsaksforhold e.l. mellom dette og et annet ord, ledd i setningen"
         return definisjonen
+    
+
+class Substantivet(Ordet):
+    def __init__(self, name: str, wordgender: str,plBøyning = "standard"):
+        super().__init__(name)
+        
+        plBøyning = plBøyning.lower()
+        muligeBøyninger : list = ["standard","ingen","annen"]
+        assert(plBøyning in muligeBøyninger)
+        
+        self.wordgender = wordgender #TODO: legg til flere kjønn av gangen
+        self.plBøyning = plBøyning
+        
+        def definerbestemtEntall():
+            vokal : list = ["a","e","i","o","u","æ","ø","å"] #dropper y grunnet det ikke blir rett
+            if self.name[-1] in vokal and self.plBøyning != "ingen":
+                ordrot = self.name[:-1]
+            else: 
+                ordrot = self.name
+            
+            if self.wordgender == "hankjønn":
+                bestemtform = ordrot + "en"
+            elif self.wordgender == "hunkjønn":
+                bestemtform = ordrot + "a"
+            else:
+                bestemtform = ordrot + "et"
+            
+            self.entallBestemtBøyd = bestemtform
+        definerbestemtEntall()
+        
+        def definerUbestemtFlertall():
+            #standard (backup)
+            self.ubestemtFlertall = self.name + "er"
+            
+            if self.plBøyning == "standard":
+                #hvis det slutter på en vokal
+                vokal : list = ["a","e","i","o","u","æ","ø","å"]
+                if self.name[-1] in vokal:
+                    ordrot = self.name[:-1]
+                    self.ubestemtFlertall  = ordrot + "er"
+                return 
+            
+            #unntak
+            if self.plBøyning == "ingen":
+                self.ubestemtFlertall  = self.name
+                return 
+                
+            if self.plBøyning == "annen":
+                if self.name == "bok":
+                    self.ubestemtFlertall  = "bøker"
+                return 
+        definerUbestemtFlertall()
+    
+    def ordklassenavn():
+        ordklasse = "substantiv"
+        nounClass = "intetkjønn"
+        return ordklasseKlasseNavn(ordklasse, nounClass)
+ 
+    
+    def definisjon():
+        definisjonen = "en ordklasse som består av ord som betegner skapning, ting, egenskap, handling, tilstand eller abstrakt fenomen"
+        return definisjonen
+    
+    
+    def tallTilform(self,mengdeordObjekt : Mengdeordet):
+        if not mengdeordObjekt.erTall:
+            tallform = "flertall"
+            return tallform
+        
+        mengdeordObjekt.tall = int(mengdeordObjekt.tall) 
+        if mengdeordObjekt.tall > 1 or mengdeordObjekt.tall == 0:
+            tallform = "flertall" 
+        else: 
+            tallform = "entall"
+    
+        return tallform

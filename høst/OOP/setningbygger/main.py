@@ -1,46 +1,48 @@
 '''
-program som bygger setninger.
+Program som
+- definerer ordklasser (ordklasse.py)
+- generer setninger i flere strukturer med tilfedige, men definerte ord (setningsstrukturer.py, ordhenting.py, ordene.py)
+- bygger avsnitt med setningene (avsnitt.py)
+
+begrensninger
 - for norsk, funker IKKE i alle språk 
+- har kun 5 setningsstrukturer
+- bestemmer ikke om setningene gir mening
+
+ideer:
+- legge til GUI
+- kunne markere "coherent sentences" - samlinger
 
 '''
-from random import randint
-
-import ordklasse as ok 
 import ordene as ordobjekt
-import setningstrukturer as lagSetningMedStruktur
-from ordsortering import tilfeldigIBestemtOrdKlasse
+import ordklasse as ok
+from avsnitt import genererAvsnitt
 
-def genererAvsnitt(wordlist):
-    avsnitt = ""
-    
-    #antall setninger i hvert avsnitt
-    avsnittLengde = range(6,15)
-    
-    for setning in avsnittLengde:
-        randomDecider = randint(1,3)
-        match randomDecider:
-            case 1:
-                setningen = lagSetningMedStruktur.PVDAN(wordlist) 
-            case 2:
-                setningen = lagSetningMedStruktur.PVTS(wordlist)
-            case 3:
-                setningen = lagSetningMedStruktur.SEA(wordlist)
-        
-        setningen = setningen[0].upper() + setningen[1:]        
-        avsnitt += setningen + ". "
-            
-    return avsnitt
+print(genererAvsnitt(ordobjekt.setningOrientertOrdlisteForståelig))
 
-# print(genererAvsnitt(ordobjekt.setningOrientertOrdlisteForståelig))
+# ok.Verbet.ordklassenavn()
 
-# print(ordobjekt.fire.ikkeTall)
+'''
+ordet = ordobjekt.bok
+if ordet.wordgender == "intetkjønn":
+    print("et",ordet())
+else:
+    print("en",ordet())
+'''
+# print(ok.Verbet("hopper"),"er", ok.Verbet.ordklassenavn()())
+
+# print(ordobjekt.fire.erTall)
 # print(lagSetningMedStruktur.PEA(ordobjekt.setningOrientertOrdlisteForståelig))
+
 '''
 i =0
 while i<10:
-    lagSetningMedStruktur.PVTS(ordobjekt.setningOrientertOrdlisteForståelig)
+    print(lagSetningMedStruktur.DVMASA(ordobjekt.setningOrientertOrdlisteForståelig))
     i +=1
-
+'''
+# print(ordobjekt.to.erTall)
+# print(ordobjekt.to.tall.isnumeric())
+'''
 
 i =0
 while i<10:
