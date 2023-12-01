@@ -22,7 +22,7 @@ def tilfeldigOrdIBestemtOrdKlasse(wordList,ordklasse):
         myint =randint(0,len(wordList)-1)
         
         randomWord = wordList[myint]
-    # ordklassen, nounClass = ordklasse.ordklassenavn() 
+    # ordklassen, wordgender = ordklasse.ordklassenavn() 
     # print(f'ditt tilfeldige ord i klassen {ordklassen} er "{randomWord()}"')
     return randomWord
 
@@ -66,8 +66,8 @@ def ErOrdeneIKlasse(wordlist : list,klasse : str): #klasse med stor bokstav
         # if ordet.erIKlasse:
         #     print(f'ordet "{ordet}" er {klasse}')
         if (issubclass(type(ordet), klasse)):
-            klassenavn, nounClass = klasse.ordklassenavn()
-            match nounClass:
+            klassenavn, wordgender = klasse.ordklassenavn()
+            match wordgender:
                 case "intetkjønn":
                     enEtEi = "et"
                 case "hankjønn":

@@ -20,8 +20,8 @@ class Ordet:
     
     def ordklassenavn():
         ordklasse = "ord"
-        nounClass = "intetkjønn"
-        return ordklasseKlasseNavn(ordklasse, nounClass)
+        wordgender = "intetkjønn"
+        return ordklasseKlasseNavn(ordklasse, wordgender)
         
     # classinfo
     
@@ -33,8 +33,8 @@ class Verbet(Ordet):
         
     def ordklassenavn():
         ordklasse = "verb"
-        nounClass = "intetkjønn"
-        return ordklasseKlasseNavn(ordklasse, nounClass)
+        wordgender = "intetkjønn"
+        return ordklasseKlasseNavn(ordklasse, wordgender)
     
     def definisjon():
         definisjonen = "en ordklasse som består av ord som betegner en handling, tilstand eller overgang, også kalt 'gjøre-ord'"
@@ -48,8 +48,8 @@ class Determinativet(Ordet):
         
     def ordklassenavn():
         ordklasse = "determinativ"
-        nounClass = "intetkjønn"
-        return ordklasseKlasseNavn(ordklasse, nounClass)
+        wordgender = "intetkjønn"
+        return ordklasseKlasseNavn(ordklasse, wordgender)
 
 class Mengdeordet(Determinativet):
     def __init__(self, name: str, tall: int):
@@ -66,8 +66,8 @@ class Mengdeordet(Determinativet):
         
     def ordklassenavn():
         ordklasse = "mengdeord"
-        nounClass = "intetkjønn"
-        return ordklasseKlasseNavn(ordklasse, nounClass)
+        wordgender = "intetkjønn"
+        return ordklasseKlasseNavn(ordklasse, wordgender)
         
     
     def definisjon():
@@ -82,8 +82,8 @@ class Pronomenet(Ordet):
         
     def ordklassenavn():
         ordklasse = "pronomen"
-        nounClass = "intetkjønn"
-        return ordklasseKlasseNavn(ordklasse, nounClass)
+        wordgender = "intetkjønn"
+        return ordklasseKlasseNavn(ordklasse, wordgender)
     
     def definisjon():
         definisjonen = "en ordklasse som består av ord som viser til, erstatter eller endrer et tidligere nevnt eller underforstått ord eller uttrykk i den samme språklige sammenhengen eller den aktuelle talesituasjonen, også kalt henvisningsord"
@@ -113,8 +113,8 @@ class DetPersonligePronomenet(Pronomenet):
         
     def ordklassenavn():
         ordklasse = "personlig pronomen"
-        nounClass = "intetkjønn"
-        return ordklasseKlasseNavn(ordklasse,nounClass)
+        wordgender = "intetkjønn"
+        return ordklasseKlasseNavn(ordklasse,wordgender)
     
     def definisjon():
         definisjonen = "en ordklasse som består av ord som kan stå i stedet for et substantiv eller navn"
@@ -127,8 +127,8 @@ class DetRelativePronomenet(Pronomenet):
     
     def ordklassenavn():
         ordklasse = "relativt pronomen"
-        nounClass = "intetkjønn"
-        return ordklasseKlasseNavn(ordklasse,nounClass)
+        wordgender = "intetkjønn"
+        return ordklasseKlasseNavn(ordklasse,wordgender)
     
     def definisjon():
         definisjonen = "en ordklasse som består av pronomen som innleder en underordnet setning og viser tilbake til et ord (substantiv, annet pronomen eller lignende) i den overordnede setningen."
@@ -140,8 +140,8 @@ class SpørrePronomenet(Pronomenet):
         
     def ordklassenavn():
         ordklasse = "spørrepronomen"
-        nounClass = "intetkjønn"
-        return ordklasseKlasseNavn(ordklasse,nounClass)
+        wordgender = "intetkjønn"
+        return ordklasseKlasseNavn(ordklasse,wordgender)
 
 class Biordet(Ordet):
     def __init__(self, name: str):
@@ -154,8 +154,8 @@ class Biordet(Ordet):
     
     def ordklassenavn():
         ordklasse = "biord"
-        nounClass = "intetkjønn"
-        return ordklasseKlasseNavn(ordklasse,nounClass)
+        wordgender = "intetkjønn"
+        return ordklasseKlasseNavn(ordklasse,wordgender)
     
         
 class Adjektivet(Biordet):
@@ -164,8 +164,8 @@ class Adjektivet(Biordet):
         
     def ordklassenavn():
         ordklasse = "adjektiv"
-        nounClass = "intetkjønn"
-        return ordklasseKlasseNavn(ordklasse, nounClass)
+        wordgender = "intetkjønn"
+        return ordklasseKlasseNavn(ordklasse, wordgender)
     
     def definisjon():
         definisjonen = "en ordklasse som består av ord som uttrykker en egenskap og ofte står som bestemmelse til et substantiv"
@@ -199,8 +199,8 @@ class Adverbet(Biordet):
         
     def ordklassenavn(self):
         ordklasse = "adverb"
-        nounClass = "intetkjønn"
-        return ordklasseKlasseNavn(ordklasse, nounClass)
+        wordgender = "intetkjønn"
+        return ordklasseKlasseNavn(ordklasse, wordgender)
     
     def definisjon():
         definisjonen = "en ordklasse som består av ord som uttrykker tid, sted, måte, grad, nektelse, den talendes holdning e.l., som kan stå til et verb, et adjektiv, et annet adverb eller (en del av) en setning"
@@ -216,8 +216,8 @@ class Konjunksjonen(Ordet):
         
     def ordklassenavn(self):
         ordklasse = "subjunksjon"
-        nounClass = "hankjønn"
-        return ordklasseKlasseNavn(ordklasse, nounClass)
+        wordgender = "hankjønn"
+        return ordklasseKlasseNavn(ordklasse, wordgender)
 
     def definisjon():
         definisjonen = "en ordklasse som består av ubøyelige ord som binder sammen og sideordner ord, fraser eller setninger"
@@ -234,8 +234,8 @@ class Subjunksjonen(Konjunksjonen):
         
     def ordklassenavn(self):
         ordklasse = "subjunksjon"
-        nounClass = "hankjønn"
-        return ordklasseKlasseNavn(ordklasse, nounClass)
+        wordgender = "hankjønn"
+        return ordklasseKlasseNavn(ordklasse, wordgender)
     
     def definisjon():
         definisjonen = "en ordklasse som består av ubøyelige ord som innleder en leddsetning (eller en infinitivskonstruksjon)"
@@ -251,8 +251,8 @@ class Interjeksjonen(Ordet):
         
     def ordklassenavn(self):
         ordklasse = "subjunksjon"
-        nounClass = "hankjønn"
-        return ordklasseKlasseNavn(ordklasse, nounClass)
+        wordgender = "hankjønn"
+        return ordklasseKlasseNavn(ordklasse, wordgender)
     
     def definisjon():
         definisjonen = "en ordklasse som består av ubøyelige ord som brukes alene eller som et uavhengig innskudd i en setning som uttrykk for et følelsesbetonet utbrudd eller i en kommunikativ funksjon (bl.a. svarord) eller for å etterligne lyder, også kalt utropsord"
@@ -264,8 +264,8 @@ class Preposisjonen(Ordet):
         
     def ordklassenavn(self):
         ordklasse = "preposisjon"
-        nounClass = "hankjønn"
-        return ordklasseKlasseNavn(ordklasse, nounClass)
+        wordgender = "hankjønn"
+        return ordklasseKlasseNavn(ordklasse, wordgender)
     
     def definisjon():
         definisjonen = "ordklasse som består av ubøyelige ord som står foran et substantiv, substantivisk ord eller ledd og angir et steds-, tids-, årsaksforhold e.l. mellom dette og et annet ord, ledd i setningen"
@@ -325,8 +325,8 @@ class Substantivet(Ordet):
     
     def ordklassenavn():
         ordklasse = "substantiv"
-        nounClass = "intetkjønn"
-        return ordklasseKlasseNavn(ordklasse, nounClass)
+        wordgender = "intetkjønn"
+        return ordklasseKlasseNavn(ordklasse, wordgender)
  
     
     def definisjon():
