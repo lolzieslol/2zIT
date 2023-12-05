@@ -85,5 +85,5 @@ def DVMASA(wordlist : list): # Det/den verb mengdeord adjektiv substantiv adverb
     
     # adverbObjekt.bøydEtterSubstantiv(substantivObjekt)
     
-    setning = f"{substantivObjekt()} {verbObjekt()} {mengdeordObjekt()} {adjektivObjekt()} {substantivString()} {adverbObjekt()}."
+    setning = f"{substantivObjekt()} {verbObjekt()} {mengdeordObjekt()} {adjektivObjekt()} {substantivString} {adverbObjekt()}."
     return setning
