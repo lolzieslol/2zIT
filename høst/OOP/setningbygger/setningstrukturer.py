@@ -69,12 +69,12 @@ def DVMASA(wordlist : list): # Det/den verb mengdeord adjektiv substantiv adverb
     verbObjekt = hent.tilfeldigOrdIBestemtOrdKlasse(wordlist,ok.Verbet)
     mengdeordObjekt = hent.tilfeldigOrdIBestemtOrdKlasse(wordlist,ok.Mengdeordet)
     adjektivObjekt =  hent.tilfeldigOrdIBestemtOrdKlasse(wordlist,ok.Adjektivet)
-    substantivObjekt =  hent.tilfeldigOrdIBestemtOrdKlasse(wordlist, ok.Substantivet)
+    substantivObjekt = hent.tilfeldigOrdIBestemtOrdKlasse(wordlist,ok.Substantivet)
     adverbObjekt =  hent.tilfeldigOrdIBestemtOrdKlasse(wordlist, ok.Adverbet)
     
     adjektivObjekt = adjektivObjekt.flertall()
     
-    substantivObjekt = hent.tilfeldigSubjektOrd(wordlist)
+    # substantivObjekt = hent.tilfeldigSubjektOrd(wordlist)
 
     enFlerTall = substantivObjekt.tallTilform(mengdeordObjekt)
     if enFlerTall != "entall":

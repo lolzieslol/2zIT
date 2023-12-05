@@ -137,7 +137,23 @@ tar = o.Verbet("tar")
 forandrer = o.Verbet("forandrer")
 endret = o.Verbet("endret","fortid")
 
-setningOrientertOrdliste : list = [jeg,er,ikke,deg,programvare,det,den,gruppe,forsto,energidrikk,latterlig,fornøyelig,øy,kort,mobil, innhold,fargerik,spennende,fjell,hav,stol,bilde, person,forfatter,du,hen,han,hun,spiser,lærer,utvikler,tester,stor,lykkelig,rask,moderne,rolig,bolle,vitenskap,fysikk,bok,informatikk, kjemi, oppskrift,urt,ide,verb,drikker,formulerer,klandrer, koselig,fornybar,tulling,faglitteratur,prøver,prøve,bygger,glad,sint,trist,frustrerende,beklagelig,forskning,studerer,presenterer,lykkelig,merkverdig,misfornøyd,oransje,gruve,ondskapsfull,kontroversiel,materiel,skadelig,ødelagt,liste,leser,orddelingsfeil,to,tre,fire,fem,tusen,sol,interessant,vi,dere,de,hyggelig,brann,foreslår,bibliografi,bibliotek,vedkommende,miljø,som,man,hvem,hva,mystisk,stille,raskt,effektivt,forsiktig,heldigvis,fornuftig,ingen,alle,forandrer,endret]
+#gruppe 6
+krinsopongis = o.Adjektivet("kringsopongis")
+norsk = o.Adjektivet("norsk")
+pepperkake = o.Substantivet("pepperkake","hankjønn")
+snø = o.Substantivet("snø","hankjønn")
+vinter = o.Substantivet("vinter","hankjønn")
+klage = o.Substantivet("klage","hankjønn")
+solnedgang = ("solnedgang","hankjønn")
+soloppgang = ("soloppgang","hankjønn")
+snør = o.Verbet("snør")
+forklarer = o.Verbet("forklarer")
+annerkjennelse = o.Substantivet("annerkjennelse","hankjønn")
+maleri = o.Substantivet("maleri","intetkjønn")
+
+# krinsopongis, norsk,pepperkake, snø, vinter, klage, solnedgang, soloppgang, snør, forklarer, annerkjennelse, maleri
+
+setningOrientertOrdliste : list = [jeg,er,ikke,deg,programvare,det,den,gruppe,forsto,energidrikk,latterlig,fornøyelig,øy,kort,mobil, innhold,fargerik,spennende,fjell,hav,stol,bilde, person,forfatter,du,hen,han,hun,spiser,lærer,utvikler,tester,stor,lykkelig,rask,moderne,rolig,bolle,vitenskap,fysikk,bok,informatikk, kjemi, oppskrift,urt,ide,verb,drikker,formulerer,klandrer, koselig,fornybar,tulling,faglitteratur,prøver,prøve,bygger,glad,sint,trist,frustrerende,beklagelig,forskning,studerer,presenterer,lykkelig,merkverdig,misfornøyd,oransje,gruve,ondskapsfull,kontroversiel,materiel,skadelig,ødelagt,liste,leser,orddelingsfeil,to,tre,fire,fem,tusen,sol,interessant,vi,dere,de,hyggelig,brann,foreslår,bibliografi,bibliotek,vedkommende,miljø,som,man,hvem,hva,mystisk,stille,raskt,effektivt,forsiktig,heldigvis,fornuftig,ingen,alle,forandrer,endret,krinsopongis, norsk,pepperkake, snø, vinter, klage, solnedgang, soloppgang, snør, forklarer, annerkjennelse,maleri]
 
 
-setningOrientertOrdlisteForståelig : list = [jeg,er,ikke,deg,programvare,det,den,gruppe,forsto,energidrikk,latterlig,fornøyelig,øy,kort,mobil, innhold,fargerik,spennende,fjell,hav,stol,bilde, person,forfatter,du,hen,han,hun,lærer,utvikler,tester,stor,lykkelig,moderne,rolig,bolle,vitenskap,fysikk,bok,informatikk, kjemi, oppskrift,urt,ide,verb,formulerer,klandrer, koselig,fornybar,tulling,faglitteratur,prøver,prøve,bygger,glad,sint,trist,frustrerende,beklagelig,forskning,studerer,presenterer,lykkelig,merkverdig,misfornøyd,oransje,gruve,ondskapsfull,kontroversiel,materiel,skadelig,ødelagt,liste,leser,orddelingsfeil,to,tre,fire,fem,tusen,sol,interessant,vi,dere,de,hyggelig,brann,foreslår,bibliotek,bibliografi,vedkommende,miljø,som,man,hvem,hva,mystisk,stille,raskt,effektivt,forsiktig,heldigvis,fornuftig,ingen,forandrer,endret]
+setningOrientertOrdlisteForståelig : list = [jeg,er,ikke,deg,programvare,det,den,gruppe,forsto,energidrikk,latterlig,fornøyelig,øy,kort,mobil, innhold,fargerik,spennende,fjell,hav,stol,bilde, person,forfatter,du,hen,han,hun,lærer,utvikler,tester,stor,lykkelig,moderne,rolig,bolle,vitenskap,fysikk,bok,informatikk, kjemi, oppskrift,urt,ide,verb,formulerer,klandrer, koselig,fornybar,tulling,faglitteratur,prøver,prøve,bygger,glad,sint,trist,frustrerende,beklagelig,forskning,studerer,presenterer,lykkelig,merkverdig,misfornøyd,oransje,gruve,ondskapsfull,kontroversiel,materiel,skadelig,ødelagt,liste,leser,orddelingsfeil,to,tre,fire,fem,tusen,sol,interessant,vi,dere,de,hyggelig,brann,foreslår,bibliotek,bibliografi,vedkommende,miljø,som,man,hvem,hva,mystisk,stille,raskt,effektivt,forsiktig,heldigvis,fornuftig,ingen,forandrer,endret,krinsopongis, norsk,pepperkake, snø, vinter, klage, solnedgang, soloppgang, snør, forklarer, annerkjennelse, maleri]
