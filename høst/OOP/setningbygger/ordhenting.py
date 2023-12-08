@@ -96,4 +96,4 @@ def tilfeldigSubjektOrd(wordlist : list):
     
     return subjektObjekt 
 
-# TODO: miljø er fornybar
+# TODO: #2 fikse setninger som "miljø er fornybar"
