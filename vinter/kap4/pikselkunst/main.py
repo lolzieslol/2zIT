@@ -27,9 +27,18 @@ while fortsett:
     
             
     # Tegner en sirkel
-    pg.draw.circle(vindu, (255, 0, 0), (100, 250), 50)
+    pg.draw.circle(vindu, (255, 0, 0), (100, 250), 50) #farge, sentrumets kordinat, radius
+    
+        # Tegner et rektangel
+    pg.draw.rect(vindu, (0, 255, 0), (200, 250, 70, 90))
+    
+        # Tegner en ellipse
+    pg.draw.ellipse(vindu, (0, 0, 255), (300, 250, 90, 60))
+    
+        # Tegner en linje
+    pg.draw.line(vindu, (200, 0, 200), (400, 100), (400, 400), 5)
     
     pg.display.flip()
     
 
-pg.quit() #gjør denne noe i praksis? 
+pg.quit() #SPM: gjør denne noe i praksis? 

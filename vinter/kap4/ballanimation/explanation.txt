@@ -1,0 +1,16 @@
+based on:
+https://innhold.aunivers.no/fagpakker/realfag/informasjonsteknologi-1-2/it-2/4-grafisk-brukergrensesnitt/4a-spill-og-animasjoner-med-pygame/en-enkel-animasjon
+
+structure:
+classes (file, v1/v2):
+- ball
+--methods:
+-- DrawSelf
+-- MoveSelf (v1)
+-- MoveSelfAtAGivenSpeed (v2)
+
+functions (file):
+- findDistancePythagoras 
+
+main -> one ball moving side to side
+main2 -> multiple balls

@@ -2,8 +2,8 @@
 Dette er en samling av det jeg lærer i IT 2. Hittil har jeg bl.a. gått gjennom kapittel 1 og 2 fra aunivers. (27. september 2023)
 
 ## Bibliotek som har blitt brukt:
-- random
-- pygame
+- random (se: høst -> kap1 -> 1c, høst -> OOP -> setningsbygger)
+- pygame (se: vinter -> kap4 (alt der))
 ## Jeg har tatt i bruk eller notert ned:
 ### Generelt
 - input
@@ -15,9 +15,9 @@ Dette er en samling av det jeg lærer i IT 2. Hittil har jeg bl.a. gått gjennom
 - match-setninger 
 - funksjoner
 ### Klasser
-- klasser 
-- subklasser
-- innebygde metoder for klasser
+- klasser (se: høst -> kap2 (alt der), høst -> OOP (alt der), vinter -> kap4 -> ballanimation)
+- subklasser/underklasser
+- innebygde metoder for klasser (se: setningsbygger)
 
 ### Lister og slikt
 - lister
@@ -35,7 +35,7 @@ Dette er en samling av det jeg lærer i IT 2. Hittil har jeg bl.a. gått gjennom
 ## Programeringsparadigmer
 - Object-oriented programming (OOP)
 - funksjonell
-## Prosjekt:
+## Større Prosjekt:
 ### Poenggrense 
 Dette prosjektet, som i filene heter "poenggrenseinfo", spør når du begynte på vgs og hvilken vgs og gir poenggrensen. Det funker for spesefikke videregående skoler.
 
@@ -54,3 +54,12 @@ programmet bruker: klasser (overklasser, underklasser), funksjoner, tekstbehandl
 Det er ikke garantert at jeg kommer til å fortsette på noen av disse
 - fraværsgrensespill
 - fileditor
+
+## Mindre prosjekt
+- oppgave: tekstanalyse fra txt-fil (startup -> tekstanalyse-fin)
+- eksempel fra bok: værdatahenting fra dictionary (1e)
+- eksempel fra bok: planet klasser (2a planet)
+- eksempel fra bok: bilett klasser (2a bilett)
+- eksempel fra bok: graftegning (kap3 -> graftegning)
+- egen ide: generere nonsense tekst (bstekst) 
+- eksempel fra bok: pygame baller som beveger seg m/fullstendig elastisk støt (ballanimation)
