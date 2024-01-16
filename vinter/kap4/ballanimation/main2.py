@@ -11,7 +11,7 @@ window = pg.display.set_mode([WINDOW_WIDTH, WINDOW_HEIGHT])
 
 # makes 2 Ball-objects
 Ball1 : BallClass = BallClass(radius=20, windowObject=window,x=250, y=250, speed_x=0.1,speed_y=0.1)
-Ball2 : BallClass = BallClass(radius=20, windowObject=window,x=200, y=200, speed_x=0.2,speed_y=0.1)
+Ball2 : BallClass = BallClass(radius=20, windowObject=window,x=200, y=200, speed_x=0.2,speed_y=0.3)
 
 # repeat until the window is closed
 continuing : bool = True

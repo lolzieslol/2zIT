@@ -16,19 +16,24 @@ class Ball:
 
     
     def MoveSelfAtAGivenSpeed(self,direction : list):
-        
+        # print("prøver å flytte")
         assert("x" in direction or "y" in direction)
         
-        if "y" in direction:
+        if "x" in direction:
+            # print("x skal flytte")
             if ((self.x - self.radius) <= 0) or ((self.x + self.radius) >= self.windowObject.get_width()):
                 self.speed_x = -self.speed_x
     
-                self.x += self.speed_x
+            self.x += self.speed_x
             
-        if "x" in direction:
+            
+            
+        if "y" in direction:
+            
+            
             if ((self.y - self.radius) <= 0) or ((self.y + self.radius) >= self.windowObject.get_width()):
                 self.speed_y = -self.speed_y
         
-                self.y += self.speed_y
+            self.y += self.speed_y
 
-        #funker ikke
+        
