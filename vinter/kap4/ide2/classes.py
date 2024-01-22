@@ -12,7 +12,6 @@ class Ball:
         self.y : float = y
         
     def DrawSelf(self):
-        #draws a circle with a hard-coded color, given coordinates and given radius
         pg.draw.circle(self.windowObject, (255, 69, 0), (self.x, self.y), self.radius) 
 
     
