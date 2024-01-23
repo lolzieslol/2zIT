@@ -44,6 +44,7 @@ while continuing:
     # Updates all visual content
     pygame.display.flip() #update
     
+    # makes time consistant regardless of computer and background tasks
     clock.tick(60)
 
 # Quits pygame
