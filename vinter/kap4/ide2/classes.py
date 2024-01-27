@@ -3,7 +3,6 @@ from pygame.locals import (K_w,K_a,K_s,K_d)
 
 class Ball:
     def __init__(self,radius,windowObject,x,y,speed_x,speed_y):
-        
         self.radius = radius
         self.windowObject = windowObject
         
@@ -14,11 +13,12 @@ class Ball:
         self.y : float = y
         
     def DrawSelf(self):
+        '''Makes the Ball appear in the window'''
         pg.draw.circle(self.windowObject, (255, 69, 0), (self.x, self.y), self.radius) 
 
     
     def MoveSelfAtAGivenSpeed(self,direction : list):
-        
+        '''Moves the Ball at the speed given in initialization, in the x and/or y direction'''
         assert("x" in direction or "y" in direction)
         
         if "x" in direction:
@@ -34,14 +34,14 @@ class Ball:
             self.y += self.speed_y
             
     def move(self,key):
-        # flytter spilleren
+        '''Moves the Ball depending on which key is pressed'''
         
-        if key[K_w]:
-            self.y -= self.speed_y
-        if key[K_a]:
-            self.y += self.speed_y
-        if key[K_s]:
-            self.x -= self.speed_x
-        if key[K_d]:
-            self.x += self.speed_x
+        if key[K_w]: #when the W key is pressed
+            self.y -= self.speed_y  #moves up
+        if key[K_s]: #when the S key is pressed
+            self.y += self.speed_y #moves down
+        if key[K_a]: #when the A key is pressed
+            self.x -= self.speed_x #moves left
+        if key[K_d]: #when the D key is pressed
+            self.x += self.speed_x #moves right
             

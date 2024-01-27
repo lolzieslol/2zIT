@@ -1,5 +1,5 @@
 '''
-
+Game where you move a Ball with WASD
 
 '''
 import pygame
@@ -38,7 +38,7 @@ while continuing:
     # Draws and moves the ball
     theBall.DrawSelf()   
     # theBall.blit(brus,(50,50))
-    theBall.MoveSelfAtAGivenSpeed(["x","y"])
+    # theBall.MoveSelfAtAGivenSpeed(["x","y"])
     theBall.move(pressed_keys)
 
     # Updates all visual content
