@@ -37,7 +37,9 @@ while continuing:
     
     # Draws and moves the ball
     theBall.DrawSelf()   
-    # theBall.blit(brus,(50,50))
+    # theBall.blit(brus,(188,189))
+    # pygame.Surface.blit(theBall,brus)
+    #TODO: #3 få ballen til å se ut som en brusflaske
     # theBall.MoveSelfAtAGivenSpeed(["x","y"])
     theBall.move(pressed_keys)
 

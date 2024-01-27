@@ -34,14 +34,25 @@ class Ball:
             self.y += self.speed_y
             
     def move(self,key):
-        '''Moves the Ball depending on which key is pressed'''
+        '''Moves the Ball depending on which key is pressed. Stops at the edge of the window'''
         
         if key[K_w]: #when the W key is pressed
-            self.y -= self.speed_y  #moves up
+            #as long as the ball is below the top
+            if not ((self.y - self.radius) <= 0):
+                self.y -= self.speed_y  #moves upwards
+                
         if key[K_s]: #when the S key is pressed
-            self.y += self.speed_y #moves down
+            #as long as the ball is above the bottom
+            if not ((self.y + self.radius) > self.windowObject.get_width()):
+                self.y += self.speed_y #moves downwards
+                
         if key[K_a]: #when the A key is pressed
-            self.x -= self.speed_x #moves left
+            #as long as the ball is to the right of the left edge
+             if not ((self.x - self.radius) <= 0):
+                self.x -= self.speed_x #moves left
+                
         if key[K_d]: #when the D key is pressed
-            self.x += self.speed_x #moves right
+            #as long as the ball is to the left of the right edge
+             if not ((self.x + self.radius) >= self.windowObject.get_width()):
+                self.x += self.speed_x #moves right
             
