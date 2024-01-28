@@ -1,8 +1,20 @@
 '''
-Game where you move a Ball with WASD
+Game where you move a Ball with WASD.
+
+things you can do:
+- move with WASD
+- end game with ESC or by hitting the x
+
+rules:
+- the ball can't move outside the window
+
+classes:
+- player ball: can be moved with keys
+- enemy ball
 
 '''
 import pygame
+from pygame.locals import K_ESCAPE
 from classes import PlayerBall as PlayerBallClasss
 from classes import EnemyBall as EnemyBallClass
 # Initializing pygame
@@ -25,23 +37,29 @@ enemyBall : EnemyBallClass = EnemyBallClass(radius=20, windowObject=window,x=50,
 continuing : bool = True
 while continuing:
     
+    
+    pressed_keys = pygame.key.get_pressed()
+    
     # Checks if the user has closed the window every time any user input happens
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             continuing = False
+        if pressed_keys[K_ESCAPE]:
+            continuing = False
 
-    pressed_keys = pygame.key.get_pressed()
         
     # Colors the background blue
     window.fill((10, 129, 210))
 
-    # Draws and moves the ball
+    # Draws the balls
     theBall.DrawSelf()   
     enemyBall.DrawSelf()
+    
     # theBall.blit(brus,(188,189))
     # pygame.Surface.blit(theBall,brus)
     #TODO: #3 få ballen til å se ut som en brusflaske
     # theBall.MoveSelfAtConstantSpeed(["x","y"])
+    # The playerball is moved by the user with WASD
     theBall.MoveControlled(pressed_keys)
 
     # Updates all visual content

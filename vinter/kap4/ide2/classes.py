@@ -40,7 +40,7 @@ class PlayerBall(Ball):
             self.y += self.speed_y
             
     def MoveControlled(self,key):
-        '''Moves the Ball depending on which key is pressed. Stops at the edge of the window'''
+        '''Moves the Ball depending on which key is pressed (WASD). Stops at the edge of the window'''
         
         if key[K_w]: #when the W key is pressed
             #as long as the ball is below the top
