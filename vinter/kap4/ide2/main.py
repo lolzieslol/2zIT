@@ -3,7 +3,8 @@ Game where you move a Ball with WASD
 
 '''
 import pygame
-from classes import Ball as BallClass
+from classes import PlayerBall as PlayerBallClasss
+from classes import EnemyBall as EnemyBallClass
 # Initializing pygame
 pygame.init()
 
@@ -17,7 +18,8 @@ window = pygame.display.set_mode([WINDOW_WIDTH, WINDOW_HEIGHT])
 brus = pygame.image.load('brus.png') 
 
 # makes a Ball-object
-theBall : BallClass = BallClass(radius=20, windowObject=window,x=250, y=250, speed_x=3, speed_y=3)
+theBall : PlayerBallClasss = PlayerBallClasss(radius=20, windowObject=window,x=250, y=250, speed_x=3, speed_y=3)
+enemyBall : EnemyBallClass = EnemyBallClass(radius=20, windowObject=window,x=50, y=50, speed_x=3, speed_y=3)
 
 # repeat until the window is closed
 continuing : bool = True
@@ -35,6 +37,7 @@ while continuing:
 
     # Draws and moves the ball
     theBall.DrawSelf()   
+    enemyBall.DrawSelf()
     # theBall.blit(brus,(188,189))
     # pygame.Surface.blit(theBall,brus)
     #TODO: #3 få ballen til å se ut som en brusflaske

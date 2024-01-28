@@ -2,7 +2,7 @@ import pygame as pg
 from pygame.locals import (K_w,K_a,K_s,K_d)
 
 class Ball:
-    def __init__(self,radius,windowObject,x,y,speed_x,speed_y):
+    def __init__(self,radius,windowObject,x,y,speed_x,speed_y,color=(255, 69, 0)):
         self.radius = radius
         self.windowObject = windowObject
         
@@ -12,10 +12,16 @@ class Ball:
         self.x : float = x
         self.y : float = y
         
+        self.color = color
+        
     def DrawSelf(self):
         '''Makes the Ball appear in the window'''
-        pg.draw.circle(self.windowObject, (255, 69, 0), (self.x, self.y), self.radius) 
+        pg.draw.circle(self.windowObject, self.color, (self.x, self.y), self.radius) 
 
+    
+class PlayerBall(Ball):
+    def __init__(self, radius, windowObject, x, y, speed_x, speed_y,color=(255, 69, 0)):
+        super().__init__(radius, windowObject, x, y, speed_x, speed_y,color)
     
     def MoveSelfAtConstantSpeed(self,direction : list):
         '''Moves the Ball at the speed given in initialization, in the x and/or y direction'''
@@ -56,3 +62,6 @@ class Ball:
              if not ((self.x + self.radius) >= self.windowObject.get_width()):
                 self.x += self.speed_x #moves right
             
+class EnemyBall(Ball):
+    def __init__(self, radius, windowObject, x, y, speed_x, speed_y,color=(100, 40, 30)):
+        super().__init__(radius, windowObject, x, y, speed_x, speed_y,color)
