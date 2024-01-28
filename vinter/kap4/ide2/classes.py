@@ -17,7 +17,7 @@ class Ball:
         pg.draw.circle(self.windowObject, (255, 69, 0), (self.x, self.y), self.radius) 
 
     
-    def MoveSelfAtAGivenSpeed(self,direction : list):
+    def MoveSelfAtConstantSpeed(self,direction : list):
         '''Moves the Ball at the speed given in initialization, in the x and/or y direction'''
         assert("x" in direction or "y" in direction)
         
@@ -33,7 +33,7 @@ class Ball:
         
             self.y += self.speed_y
             
-    def move(self,key):
+    def MoveControlled(self,key):
         '''Moves the Ball depending on which key is pressed. Stops at the edge of the window'''
         
         if key[K_w]: #when the W key is pressed

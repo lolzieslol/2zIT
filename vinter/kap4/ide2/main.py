@@ -9,7 +9,7 @@ pygame.init()
 
 clock = pygame.time.Clock()
 
-# Creating a window to "draw" our content
+# Creating a window to "draw" the content
 WINDOW_WIDTH = 500 #pixels
 WINDOW_HEIGHT = 500 #pixels
 window = pygame.display.set_mode([WINDOW_WIDTH, WINDOW_HEIGHT])
@@ -29,24 +29,22 @@ while continuing:
             continuing = False
 
     pressed_keys = pygame.key.get_pressed()
-    
-    
+        
     # Colors the background blue
     window.fill((10, 129, 210))
 
-    
     # Draws and moves the ball
     theBall.DrawSelf()   
     # theBall.blit(brus,(188,189))
     # pygame.Surface.blit(theBall,brus)
     #TODO: #3 få ballen til å se ut som en brusflaske
-    # theBall.MoveSelfAtAGivenSpeed(["x","y"])
-    theBall.move(pressed_keys)
+    # theBall.MoveSelfAtConstantSpeed(["x","y"])
+    theBall.MoveControlled(pressed_keys)
 
     # Updates all visual content
     pygame.display.flip() #update
     
-    # makes time consistant regardless of computer and background tasks
+    # Makes time consistant regardless of computer and background tasks
     clock.tick(60)
 
 # Quits pygame
