@@ -18,26 +18,27 @@ class Ball:
         '''Makes the Ball appear in the window'''
         pg.draw.circle(self.windowObject, self.color, (self.x, self.y), self.radius) 
 
+    def MoveSelfAtConstantSpeed(self,direction : list):
+            '''Moves the Ball at the speed given in initialization, in the x and/or y direction'''
+            assert("x" in direction or "y" in direction)
+            
+            if "x" in direction:
+                if ((self.x - self.radius) <= 0) or ((self.x + self.radius) >= self.windowObject.get_width()):
+                    self.speed_x = -self.speed_x
+        
+                self.x += self.speed_x
+                
+            if "y" in direction:
+                if ((self.y - self.radius) <= 0) or ((self.y + self.radius) >= self.windowObject.get_width()):
+                    self.speed_y = -self.speed_y
+            
+                self.y += self.speed_y
     
 class PlayerBall(Ball):
     def __init__(self, radius, windowObject, x, y, speed_x, speed_y,color=(255, 69, 0)):
         super().__init__(radius, windowObject, x, y, speed_x, speed_y,color)
     
-    def MoveSelfAtConstantSpeed(self,direction : list):
-        '''Moves the Ball at the speed given in initialization, in the x and/or y direction'''
-        assert("x" in direction or "y" in direction)
-        
-        if "x" in direction:
-            if ((self.x - self.radius) <= 0) or ((self.x + self.radius) >= self.windowObject.get_width()):
-                self.speed_x = -self.speed_x
     
-            self.x += self.speed_x
-            
-        if "y" in direction:
-            if ((self.y - self.radius) <= 0) or ((self.y + self.radius) >= self.windowObject.get_width()):
-                self.speed_y = -self.speed_y
-        
-            self.y += self.speed_y
             
     def MoveControlled(self,key):
         '''Moves the Ball depending on which key is pressed (WASD). Stops at the edge of the window'''
