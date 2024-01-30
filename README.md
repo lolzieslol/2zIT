@@ -25,7 +25,7 @@ Dette er en samling av det jeg lærer i IT 2. Hittil har jeg bl.a. gått gjennom
 - tabeller
 - tupler
 
-### annet
+### Annet
 - assert
 
 ## Andre ferdigheter
