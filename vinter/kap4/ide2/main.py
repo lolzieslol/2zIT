@@ -69,28 +69,39 @@ while continuing:
     coordinatesWritten = font.render(coordinateSTR, True, (50, 50, 50))
     window.blit(coordinatesWritten, (150, 20))
     
+    
+   
+    # if scoreSTR == "0":
+    #     print(a.x,a.y,a.w,a.h)
+    
     # Shows the score, which is increased any time the player's ball and enemy have the same position
-    if f.detectCollisions(theBall.x,theBall.y,theBall.radius,theBall.radius,enemyBall.x,enemyBall.y,enemyBall.radius,enemyBall.radius):
+    if f.detectCollisions(theBall, enemyBall):
+        # theBall.x,theBall.y,theBall.radius,theBall.radius,enemyBall.x,enemyBall.y,enemyBall.radius,enemyBall.radius
         scoreSTR = int(scoreSTR) + 1
         scoreSTR = str(scoreSTR)
     scoreWritten = font.render(scoreSTR, True, (50, 50, 50))
     window.blit(scoreWritten, (400, 60))
     
+    #TODO: #5 gjøre at fienden kan kræsje i brusflasken
+    
+    
+    
     # Draws the balls
     theBall.DrawSelf()   
     enemyBall.DrawSelf()
     
-    window.blit(brus,(188,189))
+    a = window.blit(brus,(218,180))
+    if f.detectCollisions(a,enemyBall):
+        # a.x,a.y,a.w,a.h,enemyBall.x,enemyBall.y,enemyBall.radius,enemyBall.radius
+        print("hi")
+        f.crash(enemyBall)
+        
+    
     # pygame.Surface.blit(theBall,brus)
     #TODO: #3 få ballen til å se ut som en brusflaske
     enemyBall.MoveSelfAtConstantSpeed(["x","y"])
     # The playerball is moved by the user with WASD
     theBall.MoveControlled(pressed_keys)
-
-    # TODO: #4 get points when two balls overlap
-    if theBall.x == enemyBall.x: #in circle: radius from x.
-        if theBall.y == enemyBall.y:
-            print("hi")
 
     # Updates all visual content
     pygame.display.flip() #update
