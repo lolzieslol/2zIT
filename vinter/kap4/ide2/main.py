@@ -42,7 +42,7 @@ font = pygame.font.SysFont("Arial", 24)
 
 # makes Ball-objects
 theBall : PlayerBallClasss = PlayerBallClasss(radius=20, windowObject=window,x=250, y=250, speed_x=3, speed_y=3)
-enemyBall : EnemyBallClass = EnemyBallClass(radius=20, windowObject=window,x=50, y=50, speed_x=3, speed_y=3)
+enemyBall : EnemyBallClass = EnemyBallClass(radius=20, windowObject=window,x=50, y=50, speed_x=2.5, speed_y=3)
 
 
 scoreSTR = "0"
@@ -82,10 +82,6 @@ while continuing:
     scoreWritten = font.render(scoreSTR, True, (50, 50, 50))
     window.blit(scoreWritten, (400, 60))
     
-    #TODO: #5 gjøre at fienden kan kræsje i brusflasken
-    
-    
-    
     # Draws the balls
     theBall.DrawSelf()   
     enemyBall.DrawSelf()
@@ -93,7 +89,7 @@ while continuing:
     a = window.blit(brus,(218,180))
     if f.detectCollisions(a,enemyBall):
         # a.x,a.y,a.w,a.h,enemyBall.x,enemyBall.y,enemyBall.radius,enemyBall.radius
-        print("hi")
+        # print("hi")
         f.crash(enemyBall)
         
     
