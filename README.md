@@ -27,7 +27,10 @@ Dette er en samling av det jeg lærer i IT 2. Hittil har jeg bl.a. gått gjennom
 
 ### Annet
 - assert
-
+- lese fra:
+-- JSON
+-- CSV
+-- TXT
 ## Andre ferdigheter
 - linket egne program med import
 - navngiving av variabler
