@@ -24,10 +24,21 @@ vanlighetStart = df['start_station_name'].value_counts() # lager en series
 
 vanlighetSlutt = df['end_station_name'].value_counts() # lager en series
 
-vanlighet =  [vanlighetStart, vanlighetSlutt]
-for vanligheten in vanlighet:
+def skrivVanligste(vanligheten):
   toppTre = vanligheten.nlargest(3) # en series av de tre vaneligste
 
   bunnTre = vanligheten.nsmallest(3) # en series av de tre mist vanlige
 
+  print("Mest Populære:")
   print(toppTre)  
+  print()
+  print("Minst Populære:")
+  print(bunnTre)
+
+print("-- Vanligste startstasjoner --")
+skrivVanligste(vanlighetStart)
+
+print()
+
+print("-- Vanligste sluttstasjoner --")
+skrivVanligste(vanlighetSlutt)
