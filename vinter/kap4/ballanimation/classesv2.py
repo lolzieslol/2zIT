@@ -15,7 +15,10 @@ class Ball:
         #draws a circle with a hard-coded color, given coordinates and given radius
         pg.draw.circle(self.windowObject, (255, 69, 0), (self.x, self.y), self.radius) 
 
-    
+    def SetSpeed(self, speed_x, speed_y):
+        self.speed_x= speed_x
+        self.speed_y= speed_y
+        
     def MoveSelfAtAGivenSpeed(self,direction : list):
         
         assert("x" in direction or "y" in direction)

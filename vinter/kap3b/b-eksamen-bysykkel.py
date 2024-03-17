@@ -5,26 +5,48 @@ fra alle startlokasjoner til sammen, per ukedag.
 '''
 
 import pandas as pd
-
+from datetime import datetime
 df = pd.read_csv('sykkel.csv')
+import dateutil
 
-#  dataframe[dataframe['Percentage'] > 70] 
 
-uniquedates = []
-for date in df.items(): 
-    if date not in  uniquedates:
-        uniquedates.append(date)
+def getUniqueDatos(df : pd.DataFrame):        
+    uniquedatos = []
+    for started_at in df['started_at']: 
+        candiDato = dateutil.parser.parse(started_at).date()
+        
+        if candiDato not in  uniquedatos:
+            uniquedatos.append(candiDato)
+            # print(type(candiDato))
+            # print(candiDato)
+            # print("lagt til noe")
+    return uniquedatos
 
-for date in uniquedates:
-    filtrert = df.filter(df['started_at'] == date)
+def checkDatos(uniquedatos):
+    for uniquedato in uniquedatos:
+        print(uniquedato)
 
-def main(df):
+uniquedatos = getUniqueDatos(df)
+checkDatos(uniquedatos)
+
+def TellAllePåDagen(df : pd.DataFrame ,dagen):
+    filtrert = df['started_at'].filter(like=str(dagen))
+    print(filtrert)
+    antall = filtrert.count()
+    return antall
+
+for dato in uniquedatos:
+    print(TellAllePåDagen(df,dato))
+    # main(filtrert)
+
+def main(df : pd.DataFrame):
     vanlighetStart = df['start_station_name'].value_counts() # lager en series med hvor mange starter totalt
-
+    
     print(vanlighetStart)
 
-for datoen in range(len(uniquedates)):
-    main(filtrert)
+# for i in range(len(uniquedatos)):
+#     print(i)
+    # main(filtrert)
 
 # mylist = []
 # mycount = []

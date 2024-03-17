@@ -1,5 +1,6 @@
 from classesv2 import Ball as BallClass
 import pygame as pg
+from pygame.locals import K_0, K_1, K_2
 
 # Initializing pygame
 pg.init()
@@ -21,6 +22,14 @@ while continuing:
     for event in pg.event.get():
         if event.type == pg.QUIT:
             continuing = False
+        
+        if pg.key.get_pressed()[K_0]:
+            Ball1.SetSpeed(0.1,0.1)
+        if pg.key.get_pressed()[K_1]:
+            Ball1.SetSpeed(0.3,0.3)
+        if pg.key.get_pressed()[K_2]:
+            Ball1.SetSpeed(0.6,0.6)
+            
 
     # Colors the background light blue
     window.fill((135, 206, 235))
