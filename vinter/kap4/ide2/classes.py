@@ -55,12 +55,12 @@ class PlayerBall(Ball):
                 
         if key[K_a]: #when the A key is pressed
             #as long as the ball is to the right of the left edge
-             if not ((self.x - self.radius) <= 0):
+            if not ((self.x - self.radius) <= 0):
                 self.x -= self.speed_x #moves left
                 
         if key[K_d]: #when the D key is pressed
             #as long as the ball is to the left of the right edge
-             if not ((self.x + self.radius) >= self.windowObject.get_width()):
+            if not ((self.x + self.radius) >= self.windowObject.get_width()):
                 self.x += self.speed_x #moves right
             
 class EnemyBall(Ball):
