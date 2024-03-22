@@ -9,14 +9,19 @@ from datetime import datetime
 df = pd.read_csv('sykkel.csv')
 import dateutil
 
+# FiltrerrtSeries = df.groupby('started_at').get_group('2022-05-15')
+
+# print(FiltrerrtSeries)
+
 
 def getUniqueDatos(df : pd.DataFrame):        
     uniquedatos = []
     for started_at in df['started_at']: 
         candiDato = dateutil.parser.parse(started_at).date()
         
-        if candiDato not in  uniquedatos:
-            uniquedatos.append(candiDato)
+        
+        # if candiDato not in  uniquedatos:
+        #     uniquedatos.append(candiDato)
             # print(type(candiDato))
             # print(candiDato)
             # print("lagt til noe")
@@ -26,8 +31,8 @@ def checkDatos(uniquedatos):
     for uniquedato in uniquedatos:
         print(uniquedato)
 
-uniquedatos = getUniqueDatos(df)
-checkDatos(uniquedatos)
+# uniquedatos = getUniqueDatos(df)
+# checkDatos(uniquedatos)
 
 def TellAllePåDagen(df : pd.DataFrame ,dagen):
     filtrert = df['started_at'].filter(like=str(dagen))
@@ -35,10 +40,11 @@ def TellAllePåDagen(df : pd.DataFrame ,dagen):
     antall = filtrert.count()
     return antall
 
+'''
 for dato in uniquedatos:
     print(TellAllePåDagen(df,dato))
     # main(filtrert)
-
+'''
 def main(df : pd.DataFrame):
     vanlighetStart = df['start_station_name'].value_counts() # lager en series med hvor mange starter totalt
     
