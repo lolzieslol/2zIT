@@ -16,8 +16,8 @@ Del 3: Finn ut i kva veke det var mest aktivitet
 import pandas as pd
 
 #dataframe
-df = pd.read_csv('vaar/test 19032024/run_ww_2020_w-PROVE.csv')
-
+# df = pd.read_csv('vaar/test 19032024/run_ww_2020_w-PROVE.csv')
+df = pd.read_csv('vaar\test 19032024\run_ww_short.csv')
 aldersgrupper = ['18-34','35-54','55+']
 
 # nameLAter = df.groupby("age_group")[].count()
