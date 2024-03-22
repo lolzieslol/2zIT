@@ -1,5 +1,5 @@
 # Skolearbeid i programfaget IT 2
-Dette er en samling av det jeg lærer i IT 2. Hittil har jeg bl.a. gått gjennom kapittel 1 og 2 fra aunivers. (27. september 2023)
+Dette er en samling av det jeg lærer i IT 2. Hittil har jeg bl.a. gått gjennom kapittel 1,2,3 og 4 fra aunivers. (22. mars 2024)
 
 ## Bibliotek som har blitt brukt:
 - random (se: høst -> kap1 -> 1c, høst -> OOP -> setningsbygger)
