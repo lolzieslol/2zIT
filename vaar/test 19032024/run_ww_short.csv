@@ -1,3 +1,4 @@
+linenumber,datetime,athlete,distance,duration,gender,age_group,country,major
 36252,2020-01-01,37428,104.549,497.23333333333335,M,35 - 54,United Kingdom,LONDON 2019
 36253,2020-01-01,37429,45.88,283.95,M,35 - 54,India,NEW YORK 2018
 36254,2020-01-01,37432,43.65,254.75,M,55 +,United States,BOSTON 2017
